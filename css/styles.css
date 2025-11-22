@@ -740,3 +740,31 @@ input:-webkit-autofill:active {
         text-align: right;
     }
 }
+
+/* Animación de bienvenida */
+#welcome-tittle {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.2s ease;
+}
+
+/* Botón vaciar carrito */
+.clear.cart.btn {
+    background: #D32F2F;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    margin-top: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+
+/* Productos cargados desde API */
+.product-img {
+    height: 200px;
+    object-fit: contain;
+    background: white;
+    padding: 10px;
+}
