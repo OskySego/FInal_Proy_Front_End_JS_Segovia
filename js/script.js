@@ -142,3 +142,90 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicializar todo
     updateCartBadge();
 });
+// === ANIMACIÓN ÉPICA CON GSAP (solo en index.html) ===
+if (document.getElementById('hero')) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Fondo con parallax sutil
+    gsap.to("#hero", {
+        backgroundPosition: "50% 100%",
+        ease: "none",
+        scrollTrigger: {
+            trigger: "#hero",
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+        }
+    });
+
+    // Título línea por línea
+    gsap.from(".hero-title .line", {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.3,
+        ease: "power4.out"
+    });
+
+    // Subtítulo y botones
+    gsap.from(".hero-subtitle", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.8,
+        ease: "power3.out"
+    });
+
+    gsap.from(".hero-buttons", {
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        delay: 1.2,
+        ease: "power3.out"
+    });
+
+    gsap.from(".hero-highlight", {
+        scale: 0.8,
+        opacity: 0,
+        duration: 1.5,
+        delay: 1.6,
+        ease: "elastic.out(1, 0.5)"
+    });
+
+    // Logo con efecto de entrada + rotación sutil
+    gsap.from(".hero-logo", {
+        scale: 0,
+        rotation: -180,
+        opacity: 0,
+        duration: 1.8,
+        delay: 0.5,
+        ease: "back.out(1.7)"
+    });
+
+    // Partículas flotantes (opcional pero queda increíble)
+    for (let i = 0; i < 15; i++) {
+        let particle = document.createElement("div");
+        particle.style.cssText = `
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #FFC72C;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.6;
+            z-index: 1;
+        `;
+        particle.style.left = Math.random() * 100 + "%";
+        particle.style.top = Math.random() * 100 + "%";
+        document.getElementById('hero').appendChild(particle);
+
+        gsap.to(particle, {
+            y: -1000,
+            x: Math.random() * 400 - 200,
+            duration: Math.random() * 20 + 10,
+            repeat: -1,
+            ease: "none",
+            delay: Math.random() * 5
+        });
+    }
+}
