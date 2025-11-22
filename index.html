@@ -1,83 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width-device-width initial-scale=1.0">
-        <meta name="description" content="Osky Diseños - Diseños Web y Gráficos Profesional en Argentina. Transformamos ideas en marcas impactantes.">
-        <meta name="keywords" content="diseño web, branding, flyers, tarjetas digitales, diseño gráfico argentina">
-        <title>Osky Diseños │ Diseño Web y Gráfico Profesional</title>
-        <link rel="stylesheet" href="css/styles.css">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+display:wght@700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflae.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    </head>
-</html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Osky Diseños - Diseño Web, Branding y Gráfico Profesional en Argentina">
+    <meta name="keywords" content="diseño web, branding, logo, flyers, tarjetas digitales, argentina">
+    <meta name="author" content="Osky Diseños">
+    <title>Osky Diseños | Diseño Web y Gráfico Profesional</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 <body>
+
     <header class="main-header">
-        <div class="Logo">
+        <div class="logo">
             <a href="index.html">
-                <img src="img/logo_for_Osky_Diseños.svg" alt="Logo Osky Diseños" 
-                class="header-logo">
+                <img src="img/Logo_for_Osky_Diseños.svg" alt="Logo Osky Diseños" class="header-logo">
             </a>
         </div>
         <nav class="main-nav">
             <ul>
-                <li><a href="index.html" class="active">Inicio</a> </li>
-                <li> <a href="productos.html">Productos</a></li>
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="productos.html">Servicios</a></li>
                 <li><a href="resenas.html">Reseñas</a></li>
-                <li><a href="contacto.html">Contactos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
-        <button class="menu-toggle" aria-label="Abrir Menú">☰</button>
+        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
         <div class="cart-icon-container" id="cart-icon">
-        <i class="fas fa-shopping-cart"></i>    
-        <span id="cart-quatity" class="cart-quatity-badge">0</span>
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-quantity" class="cart-quantity-badge">0</span>
+        </div>
     </header>
+
     <main>
         <section class="hero-page-section">
             <div class="hero-content">
-                <h1 id="welcome-tittle">¡BIENVENIDOS A OSKY DISEÑOS!</h1>
-                <p class="subtitle">Diseño web y gráfico que convierte visitantes en clientes</p>
-                <p class="highlight-text">Más de 5 años ayudando a emprendedores a destacar con marcas únicas y sitios web profesionales.</p>
-                <a href="productos.html" class="cta-button">Explorar Productos</a> 
+                <h1 id="welcome-title" class="animate-welcome">¡Hola! Soy Osky</h1>
+                <p class="subtitle">Diseño web y gráfico que convierte ideas en marcas reales</p>
+                <p class="highlight-text">Más de 5 años ayudando a emprendedores a crecer con diseños únicos y profesionales</p>
+                <a href="productos.html" class="cta-button">Ver Mis Servicios</a>
             </div>
             <div class="hero-banner">
-                <img src="img/logo_for_Osky_Diseños.svg" alt="Diseño creativos y modernos" class="multimedia-img">
+                <img src="img/Logo_for_Osky_Diseños.svg" alt="Diseños profesionales y modernos" class="multimedia-img">
             </div>
-        </section>>
-        
+        </section>
+
         <section class="summary-section">
-            <h2 >¿Por qué elegir Osky?</h2>
+            <h2>¿Por qué confiar en mí?</h2>
             <div class="card-grid-small">
                 <div class="summary-card violet-bg">
-                    <h3>Diseños Únicos</h3>
-                    <p>Cada proyecto es 100% personalizado. Tu marca, tu estilo</p>
+                    <h3>100% Personalizado</h3>
+                    <p>Nada de plantillas. Todo hecho a tu medida.</p>
                 </div>
                 <div class="summary-card light-bg">
                     <h3>Entrega Rápida</h3>
-                    <p>Webs en 7 días. Banners en 48hs. Tarjeta en 24hs.</p>
+                    <p>Web en 7 días · Banners en 48h · Tarjetas en 24h</p>
                 </div>
                 <div class="summary-card violet-bg">
-                    <h3>Precios Accesibles</h3>
-                    <p>Calidad profesional sin gastar fortuna.</p>
+                    <h3>Soporte Real</h3>
+                    <p>Te acompaño en todo el proceso y después</p>
                 </div>
             </div>
         </section>
-     </main>
-     <!-- Modal del Carrito  -->
+    </main>
+
+    <!-- Modal del Carrito -->
     <div id="cart-modal" class="modal">
         <div class="modal-content cart-modal-content">
-            <span class="close-button" id="close-cart-btn">x</span>
-            <h3>Tu Carrito</h3>
-            <div id="cart-items" class="cart-items-container">
-                <p class="empty-cart-message">Tu cerrito está vacío</p>
-            </div>
+            <span class="close-button" id="close-cart-btn">×</span>
+            <h3>Tu Carrito de Servicios</h3>
+            <div id="cart-items" class="cart-items-container"></div>
             <div class="cart-summary">
-                <span>Total</span>
-                <span class="cart-total-amount">$<span id="cart-total"></span></span>
+                <span>Total:</span>
+                <span class="cart-total-amount">$<span id="cart-total">0</span></span>
             </div>
             <button id="checkout-btn" class="cta-button">Finalizar Compra</button>
-            <button id="clear-cart-btn" class="close-cart-btn">Vaciar Carrito</button>
-        </div> 
+            <button id="clear-cart-btn" class="clear-cart-btn">Vaciar Carrito</button>
+        </div>
     </div>
 
     <footer>
