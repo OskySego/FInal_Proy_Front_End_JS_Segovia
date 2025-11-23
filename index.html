@@ -1,25 +1,23 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Osky Diseños - Diseño Web, Branding y Gráfico Profesional en Argentina">
-    <meta name="keywords" content="diseño web, branding, logo, flyers, tarjetas digitales, argentina">
-    <meta name="author" content="Osky Diseños">
-    <title>Osky Diseños | Diseño Web y Gráfico Profesional</title>
+    <meta name="description" content="Osky Diseños - Expertos en diseño web y gráfico profesional con IA. Descubre templates personalizados, branding y más.">
+    <meta name="keywords" content="diseño web, diseño gráfico, templates, branding, flyers, IA, Osky Diseños">
+    <title>Osky Diseños | Bienvenido a Diseños Profesionales con IA</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.min.js"></script>
 </head>
 <body>
-
     <header class="main-header">
         <div class="logo">
-            <a href="index.html">
-                <img src="img/Logo_for_Osky_Diseños.svg" alt="Logo Osky Diseños" class="header-logo">
-            </a>
+            <a href="index.html"><img src="img/Logo_for_Osky_Diseños.svg" alt="Logo de Osky Diseños, representando creatividad en diseño web y gráfico" class="header-logo"></a>
         </div>
         <nav class="main-nav">
             <ul>
@@ -29,73 +27,63 @@
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
-        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+        <button class="menu-toggle" aria-label="Abrir menú de navegación">☰</button>
         <div class="cart-icon-container" id="cart-icon">
-            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
             <span id="cart-quantity" class="cart-quantity-badge">0</span>
         </div>
     </header>
 
-    <main>
-       <section class="hero-page-section" id="hero">
+    <main class="page-content">
+        
+        <section class="hero-page-section">
             <div class="hero-content">
-                <!-- Título principal con animación de entrada -->
-                <h1 class="hero-title">
-                    <span class="line">¡Hola! Soy Osky</span>
-                     <span class="line">Diseñador Web & Gráfico</span>
+                <!-- TÍTULO QUE APARECE LETRA POR LETRA -->
+                <h1 class="typing-title">
+                    <span class="greeting" id="greeting-text">¡Hola! Bienvenido a Osky Diseños</span>
+                    <span class="cursor">|</span>
                 </h1>
-
-                <!-- Subtítulo -->
-                <p class="hero-subtitle">
-                    Transformo ideas en marcas profesionales con diseños únicos, modernos y que venden
+                <!-- SUBTÍTULO CON FADE IN SUAVE -->
+                <p class="subtitle fade-in delay-1">Diseño web y gráfico que convierte ideas en marcas reales</p>
+        
+                <!-- TEXTO DESTACADO CON ANIMACIÓN DE REBOTE -->
+                <p class="highlight-text fade-in delay-2">
+                    Más de 5 años ayudando a emprendedores argentinos a crecer con diseños únicos, modernos y efectivos
                 </p>
-
-                <!-- Botones -->
-                 <div class="hero-buttons">
+                <!-- BOTONES CON EFECTO HOVER BRILLANTE -->
+                <div class="hero-buttons fade-in delay-3">
                     <a href="productos.html" class="cta-button main-cta">
-                         <span>Ver Servicios</span>
-                        <i class="fas fa-arrow-right"></i>
+                        <span>Ver Mis Servicios</span>
                     </a>
                     <a href="contacto.html" class="cta-button secondary-cta">
-                        <span>Contactame</span>
+                        <span>Hablemos de tu proyecto</span>
                     </a>
                 </div>
-
-                <!-- Texto destacado -->
-                <p class="hero-highlight">
-                    Más de 5 años ayudando a emprendedores argentinos a destacar en digital
-                </p>
+                 <!-- ESTRELLAS DECORATIVAS ANIMADAS -->
+                <div class="floating-stars">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
             </div>
-
-            <div class="hero-image">
-                <img src="img/Logo_for_Osky_Diseños.svg" alt="Osky Diseños - Logo Profesional" class="hero-logo">
+            <div class="hero-banner fade-in delay-2">
+                <img src="img/Logo_for_Osky_Diseños.svg" alt="Osky Diseños - Logo profesional" class="multimedia-img hero-logo">
             </div>
         </section>
 
         <section class="summary-section">
-            <h2>¿Por qué confiar en mí?</h2>
+            <h2>¿Por Qué Elegir Osky Diseños?</h2>
+            <p class="subtitle">Ofrecemos soluciones únicas que combinan creatividad, tecnología y resultados reales. Únete a cientos de clientes satisfechos.</p>
             <div class="card-grid-small">
-                <div class="summary-card violet-bg">
-                    <h3>100% Personalizado</h3>
-                    <p>Nada de plantillas. Todo hecho a tu medida.</p>
-                </div>
-                <div class="summary-card light-bg">
-                    <h3>Entrega Rápida</h3>
-                    <p>Web en 7 días · Banners en 48h · Tarjetas en 24h</p>
-                </div>
-                <div class="summary-card violet-bg">
-                    <h3>Soporte Real</h3>
-                    <p>Te acompaño en todo el proceso y después</p>
-                </div>
+                <div class="summary-card violet-bg"><h3>Diseños 100% Personalizados</h3><p>Olvídate de plantillas genéricas; creamos experiencias únicas adaptadas a tu visión.</p></div>
+                <div class="summary-card light-bg"><h3>Entregas Rápidas y Eficientes</h3><p>Flyers en 24 horas, sitios web en 7 días. Tiempo es dinero, y lo respetamos.</p></div>
+                <div class="summary-card violet-bg"><h3>Soporte Personalizado 24/7</h3><p>Estamos contigo en cada paso, asegurando que tu proyecto brille.</p></div>
             </div>
         </section>
     </main>
 
-    <!-- Modal del Carrito -->
     <div id="cart-modal" class="modal">
         <div class="modal-content cart-modal-content">
             <span class="close-button" id="close-cart-btn">×</span>
-            <h3>Tu Carrito de Servicios</h3>
+            <h3>Tu Carrito de Compras</h3>
             <div id="cart-items" class="cart-items-container"></div>
             <div class="cart-summary">
                 <span>Total:</span>
@@ -107,7 +95,7 @@
     </div>
 
     <footer>
-        <p>© 2025 Osky Diseños | Todos los derechos reservados</p>
+        <p>&copy; 2025 Osky Diseños | Todos los derechos reservados. Diseñado con pasión en Argentina.</p>
     </footer>
 
     <script src="js/script.js"></script>

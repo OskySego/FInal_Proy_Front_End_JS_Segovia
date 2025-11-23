@@ -1,19 +1,23 @@
+<!-- contacto.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacta a Osky Diseños para servicios de diseño web y gráfico. Envía tu consulta y recibe una respuesta rápida.">
+    <meta name="keywords" content="contacto Osky Diseños, consulta diseño web, diseño gráfico Argentina">
     <title>Contacto | Osky Diseños</title>
-    <link rel="stylesheet" href="css\styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.min.js"></script>
 </head>
 <body>
-
     <header class="main-header">
         <div class="logo">
-            <a href="index.html">
-                <img src="./img/Logo_for_Osky_Diseños.svg" alt="Osky Diseños Logo" class="header-logo">
-            </a>
+            <a href="index.html"><img src="img/Logo_for_Osky_Diseños.svg" alt="Logo de Osky Diseños, representando creatividad en diseño web y gráfico" class="header-logo"></a>
         </div>
         <nav class="main-nav">
             <ul>
@@ -23,44 +27,53 @@
                 <li><a href="contacto.html" class="active">Contacto</a></li>
             </ul>
         </nav>
-        <button class="menu-toggle" aria-label="Abrir Menú">&#9776;</button>
+        <button class="menu-toggle" aria-label="Abrir menú de navegación">☰</button>
+        <div class="cart-icon-container" id="cart-icon">
+            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+            <span id="cart-quantity" class="cart-quantity-badge">0</span>
+        </div>
     </header>
-    
+
     <main class="page-content">
         <section class="page-header">
-            <h2>Conversemos sobre tu Proyecto</h2>
-            <p class="subtitle">Escríbeme y juntos encontraremos la mejor solución visual para tu marca.</p>
+            <h2>¡Hablemos de Tu Proyecto!</h2>
+            <p class="subtitle">Cuéntanos tus ideas y te ayudaremos a convertirlas en diseños persuasivos que impulsen tu negocio. Respuesta garantizada en menos de 24 horas.</p>
         </section>
 
         <section id="contacto" class="contact-section-page">
-    <form action="https://formspree.io/f/xvgwzvnj" method="POST" class="contact-form" id="contactForm">
-        <input type="hidden" onsubmit="setTimeout(() => this.reset(), 1000)">
+            <form action="https://formspree.io/f/xvgwzvnj" method="POST" class="contact-form" id="contactForm">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required autocomplete="name" aria-required="true">
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required autocomplete="off">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required autocomplete="email" aria-required="true">
 
-        <label for="email">Correo Electrónico:</label>
-        <input type="email" id="email" name="email" required autocomplete="off">
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="6" required aria-required="true"></textarea>
 
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" rows="6" required autocomplete="off"></textarea>
-
-        <button type="submit">Enviar Mensaje</button>
-    </form>
-</section>
+                <button type="submit">Enviar Consulta</button>
+            </form>
+        </section>
     </main>
 
+    <div id="cart-modal" class="modal">
+        <div class="modal-content cart-modal-content">
+            <span class="close-button" id="close-cart-btn">×</span>
+            <h3>Tu Carrito de Compras</h3>
+            <div id="cart-items" class="cart-items-container"></div>
+            <div class="cart-summary">
+                <span>Total:</span>
+                <span class="cart-total-amount">$<span id="cart-total">0</span></span>
+            </div>
+            <button id="checkout-btn" class="cta-button">Finalizar Compra</button>
+            <button id="clear-cart-btn" class="clear-cart-btn">Vaciar Carrito</button>
+        </div>
+    </div>
+
     <footer>
-        <p>&copy; 2025 Osky Diseños | Portfolio de Diseño Web y Gráfico</p>
+        <p>&copy; 2025 Osky Diseños | Todos los derechos reservados. Diseñado con pasión en Argentina.</p>
     </footer>
-    <script>
-    // 💥 Solo el código del menú móvil
-    const nav = document.querySelector('.main-nav');
-    const toggle = document.querySelector('.menu-toggle');
-    toggle.addEventListener('click', () => {
-        nav.classList.toggle('open');
-    });
-</script>
-    
+
+    <script src="js/script.js"></script>
 </body>
 </html>

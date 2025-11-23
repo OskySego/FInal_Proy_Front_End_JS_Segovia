@@ -1,0 +1,83 @@
+<!-- resenas.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reseñas de clientes satisfechos en Osky Diseños. Lee testimonios reales sobre nuestros servicios de diseño web y gráfico.">
+    <meta name="keywords" content="reseñas Osky Diseños, testimonios diseño web, opiniones branding">
+    <title>Reseñas | Osky Diseños</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.min.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <a href="index.html"><img src="img/Logo_for_Osky_Diseños.svg" alt="Logo de Osky Diseños, representando creatividad en diseño web y gráfico" class="header-logo"></a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Servicios</a></li>
+                <li><a href="resenas.html" class="active">Reseñas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="Abrir menú de navegación">☰</button>
+        <div class="cart-icon-container" id="cart-icon">
+            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+            <span id="cart-quantity" class="cart-quantity-badge">0</span>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <section class="page-header">
+            <h2>Lo Que Dicen Nuestros Clientes</h2>
+            <p class="subtitle">Descubre por qué emprendedores como tú eligen Osky Diseños para transformar sus ideas en realidades impactantes. Sus historias te convencerán de unirte a nosotros.</p>
+        </section>
+
+        <section class="reseñas-grid-page">
+            <div class="reseñas-item violet-bg">
+                <h3>Excelente Servicio</h3>
+                <p>"Osky transformó mi branding en algo profesional. ¡Recomendado al 100%!" - Juan Pérez</p>
+            </div>
+            <div class="reseñas-item light-bg">
+                <h3>Rápido y Creativo</h3>
+                <p>"El flyer que diseñaron capturó perfectamente mi evento. Entrega en tiempo récord." - María López</p>
+            </div>
+            <div class="reseñas-item violet-bg">
+                <h3>Diseño Web Impecable</h3>
+                <p>"Mi sitio web ahora es responsive y moderno gracias a Osky. Soporte increíble." - Carlos Gómez</p>
+            </div>
+            <div class="reseñas-item light-bg">
+                <h3>Resultados que Venden</h3>
+                <p>"Aumentaron mis ventas con un branding persuasivo. ¡Gracias Osky!" - Ana Ruiz</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content cart-modal-content">
+            <span class="close-button" id="close-cart-btn">×</span>
+            <h3>Tu Carrito de Compras</h3>
+            <div id="cart-items" class="cart-items-container"></div>
+            <div class="cart-summary">
+                <span>Total:</span>
+                <span class="cart-total-amount">$<span id="cart-total">0</span></span>
+            </div>
+            <button id="checkout-btn" class="cta-button">Finalizar Compra</button>
+            <button id="clear-cart-btn" class="clear-cart-btn">Vaciar Carrito</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Osky Diseños | Todos los derechos reservados. Diseñado con pasión en Argentina.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,14 +1,14 @@
-/* Paleta de Colores Modificada: Violeta (Base) y Dorado/Verde (Acento)
+/* styles.css */
+/* Paleta de Colores: Violeta y Verde
 - Violeta Profundo (Principal): #5d0067
-- Dorado (Acento/CTA): #FFC72C
 - Verde Oscuro/Teal (Fondo Base): #004D40
+- Dorado (Acento/CTA): #FFC72C (para acentos, pero priorizar verde)
+- Verde Lima (CTA Secundario): #8BC34A
 - Azul Marino (Texto Oscuro): #0D1321
 - Gris/Blanco Roto (Texto Claro): #F7F7F7
-- Verde Lima (CTA Secundario): #88c34a
 */
 
-/* --- Base y Tipografia --- */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -17,35 +17,35 @@
 body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
-    background-color: #004d40; /*Fondo: Verde Oscuro/teal*/
-    color: #f7f7f7; /* Text: Gris/Blanco Roto (Legible sobre fondo oscuro) */
-    min-width: 100vh;
+    background-color: #004d40; /* Verde Oscuro/Teal */
+    color: #f7f7f7; /* Gris/Blanco Roto */
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 h1, h2, h3 {
     font-family: 'Playfair Display', serif;
-    color: #FFC72C; /* TEXT: Dorado (Para títulos, alto contraste */
-    margin-bottom: 0.5rem; 
+    color: #8BC34A; /* Verde Lima para títulos */
+    margin-bottom: 0.5rem;
 }
 
-.subtitule {
+.subtitle {
     font-size: 1.1rem;
-    color: #f7f7f7; /* TEXT: Gris/Blanco Roto*/
+    color: #f7f7f7;
     margin-bottom: 2rem;
 }
 
 main {
     flex-grow: 1;
     padding: 0;
-    background-color: #f7f7f7; /* FONDO: Gris/Blando Roto (Contenido principal) */
-    color: #0D1321; /* TEXT: Azul Marino (Legible sobre Fondo claro) */
+    background-color: #f7f7f7;
+    color: #0D1321;
 }
 
-/* --- 1. Header --- */ 
+/* Header */
 .main-header {
-    background-color: #5D0067; /* Fondo: Violeta Profundo */
+    background-color: #5D0067; /* Violeta Profundo */
     padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
@@ -59,14 +59,13 @@ main {
 .header-logo {
     height: 90px;
     width: auto;
-    display: block;
 }
 
 .menu-toggle {
     display: none;
     background: none;
     border: none;
-    color: #f7f7f7; /* TEXT: Gris/Blanco Roto */
+    color: #f7f7f7;
     font-size: 2rem;
     cursor: pointer;
 }
@@ -78,112 +77,116 @@ main {
 
 .main-nav ul li a {
     text-decoration: none;
-    color: #f7f7f7; /* TEXT: Gris/Blanco Roto */
+    color: #f7f7f7;
     font-weight: 600;
     padding: 0 1.5rem 1rem;
-    display: block;
     border-radius: 4px;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .main-nav ul li a:hover,
 .main-nav ul li a.active {
-    background-color: #FFC72C; /* FONDO: Dorado */
-    color: #5D0067; /* TEXT: Violeta Profundo */
+    background-color: #8BC34A; /* Verde Lima */
+    color: #5D0067; /* Violeta Profundo */
 }
 
-/* Contenedor del ícono del carrito en el header */
 .cart-icon-container {
     position: relative;
     cursor: pointer;
-    color: #FFC72C; /* ICON: Dorado */
+    color: #8BC34A; /* Verde Lima */
     font-size: 1.8rem;
     margin-left: 20px;
     display: flex;
     align-items: center;
 }
 
-/* Badge de cantidad en el carrito */
 .cart-quantity-badge {
     position: absolute;
     top: -8px;
     right: -12px;
-    background-color: #8BC34A; /* FOND: Verde Lima */
-    color: #0D1321; /* TEXT: Azul Marino */
+    background-color: #FFC72C; /* Dorado para badge */
+    color: #0D1321;
     font-size: 0.8rem;
     font-weight: bold;
     border-radius: 50%;
     padding: 2px 7px;
     min-width: 20px;
     text-align: center;
-    line-height: 1.2;
     display: none;
 }
 
-/* --- 2. Hero --- */
+/* Hero Section */
 .hero-page-section {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 30px;
-    padding: 3.5rem 0 3.5rem 0;
+    padding: 3.5rem 5%;
     text-align: center;
-    /* Degradado de Violeta a Azul Marino */
-    background: linear-gradient(135deg, #5D0067 0%, #0D1321 100%);
-    border-bottom: 5px solid #FFC72C; /* BORDER: Dorado */
-    color: #f7f7f7; /* TEXT: Gris/Blanco Roto */
+    background: linear-gradient(135deg, #5D0067 0%, #004D40 100%); /* Violeta a Verde */
+    color: #f7f7f7;
+    border-bottom: 5px solid #8BC34A; /* Verde Lima */
 }
 
 .hero-content {
-    padding: 0 5%;
+    flex: 1;
 }
 
-.hero-banner {
-    flex: 1 1 100%;
-    padding: 0 5%;
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.multimedia-img {
-    max-width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-    margin: 1rem auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+.hero-logo {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
 }
 
 .cta-button {
-    display: inline-block;
-    background-color: #FFC72C; /* FONDO: Dorado (Acento) */
-    color: #0D1321; /* TEXT: Azul Marino */
+    display: inline-flex;
+    align-items: center;
+    background-color: #8BC34A; /* Verde Lima */
+    color: #0D1321;
     padding: 1rem 2rem;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
     margin-top: 1rem;
-    box-shadow: 0 4px #5D0067; /* SHADOW: Violeta Profundo */
+    box-shadow: 0 4px #5D0067;
     transition: all 0.3s ease;
 }
 
-.cta-button:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px #5D0067; /* SHADOW: Violeta Profundo */
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px #5D0067;
 }
 
-/* --- 3. Sección de Resumen --- */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.secondary-cta {
+    background: transparent;
+    border: 2px solid #8BC34A;
+    color: #f7f7f7;
+}
+
+.secondary-cta:hover {
+    background: #8BC34A;
+    color: #0D1321;
+}
+
+/* Summary Section */
 .summary-section {
-    background-color: #004D40; /* FONDO: Verde Oscuro/Teal */
+    background-color: #004D40; /* Verde Oscuro */
     padding: 4rem 5%;
     text-align: center;
-    color: #f7f7f7; /* TEXT: Gris/Blanco Roto */
-}
-.summary-section h2 {
-    color: #FFC72C; /* Titulo de sección en Dorado */
-}
-
-.summary-cards {
-    padding: 0;
-    text-align: center;
+    color: #f7f7f7;
 }
 
 .card-grid-small {
@@ -191,15 +194,14 @@ main {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    margin-top: 2rem;
 }
 
 .summary-card {
     flex: 1 1 250px;
     padding: 1.5rem;
     border-radius: 10px;
-    background-color: #f7f7f7; /* FONDO: Gris/Blanco Roto */
-    color: #0D1321; /* TEXT: Azul Marino */
+    background-color: #f7f7f7;
+    color: #0D1321;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
@@ -208,331 +210,125 @@ main {
     transform: translateY(-8px);
 }
 
-.summary-card h3 {
-    color: #5D0067; /* Título de tarjetas en Violeta Profundo */
-}
-
 .violet-bg {
-    background-color: #5D0067; /* FONDO: Violeta Profundo */
-    color: #f7f7f7; /* TEXT: Gris/Blanco Roto */
+    background-color: #5D0067;
+    color: #f7f7f7;
 }
 
 .violet-bg h3 {
-    color: #FFC72C; /* TEXT: Dorado */
+    color: #8BC34A; /* Verde Lima */
 }
 
-.light-bg {
-    background-color: #f7f7f7; /* FONDO: Gris/Blanco Roto */
-    color: #0D1321; /* TEXT: Azul Marino */
-}
-
-/* --- 4. Estilos Comunes de páginas secundarias --- */ 
-.page-content section {
-    padding: 0;
-    text-align: center;
-    border-bottom: none;
-}
-
-.page-header {
-    padding: 3rem 5% 2rem;
-    text-align: center;
-    border-bottom: none;
-}
-
-.page-header h2 {
-    color: #5D0067; /* Título de página en Violeta Profundo */
-}
-
-/* --- 5. Seccion Productos --- */
+/* Productos Section - Flexbox Responsivo */
 .productos-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 0 20px;
     justify-content: center;
-    max-width: 1200px;
-    margin: 40px auto;
+    padding: 2rem 5%;
 }
 
 .card-product {
     flex: 1 1 300px;
-    max-width: 350px;
-    width: 100%;
-    background-color: #FFFFFF; /* FONDO: Blanco puro para la tarjeta de producto */
-    border: 1px solid #004d40; /* BORDER: Verde Oscuro/Teal */
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    color: #0D1321; /* TEXT: Azul Marino */
+    max-width: 300px;
+    background: #f7f7f7;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
 }
 
-.card-product h4 {
-    color: #5D0067; /* TEXT: Violeta Profundo */
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    border-bottom: 2px solid #004D40; /* BORDER: Verde Oscuro/Teal */
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
+.card-product:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(93, 0, 103, 0.3);
 }
 
-.card-product .product-img {
+.product-img {
     width: 100%;
-    display: block;
-    height: 180px;
+    height: 220px;
     object-fit: cover;
-    margin: 0 auto 1rem auto;
-    border-radius: 8px;
+    transition: transform 0.5s ease;
 }
 
-.features {
-    list-style: none;
-    margin: 1rem 0;
-    padding: 0;
+.card-product:hover .product-img {
+    transform: scale(1.1);
 }
 
-.features li {
-    padding: 0.3rem 0;
-    border-bottom: 1px dotted #004D40; /* BORDER: Verde Oscuro/Teal */
-    color: #0D1321; /* TEXT: Azul Marino */
-    font-size: 0.95rem;
-}
-
-.cta-small {
-    display: inline-block;
-    background-color: #8BC34A; /* FONDO: Verde Lima */
-    color: #0D1321; /* TEXT: Azul Marino */
-    padding: 0.5rem 1.5rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 700;
-    margin-top: 1rem;
-    transition: all 0.3s ease;
-}
-
-.cta-small:hover {
-    background-color: #FFC72C; /* FONDO: Dorado */
-    color: #5D0067; /* TEXT: Violeta Profundo */
-}
-
-/* Precio de producto */
-.product-price {
-    display: block;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #5D0067; /* TEXT: Violeta Profundo */
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-/* Botón "Añadir al Carrito" */
 .add-to-cart-btn {
-    display: block;
-    width: 100%;
-    background-color: #8BC34A; /* FONDO: Verde Lima */
-    color: #0D1321; /* TEXT: Azul Marino */
-    padding: 0.8rem 1.5rem;
+    background: #5D0067;
+    color: #f7f7f7;
     border: none;
-    border-radius: 8px;
-    font-weight: 700;
+    padding: 14px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s;
-    font-size: 1rem;
+    width: 100%;
+    transition: background 0.3s;
 }
 
 .add-to-cart-btn:hover {
-    background-color: #FFC72C; /* FONDO: Dorado */
-    color: #5D0067; /* TEXT: Violeta Profundo */
-    transform: translateY(-2px);
+    background: #8BC34A;
 }
 
-.add-to-cart-btn:active {
-    transform: translateY(0);
-}
-
-
-/* --- 6. Sección reseñas --- */
+/* Reseñas Section - Grid */
 .reseñas-grid-page {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 25px;
-    margin-top: 2rem;
-    padding: 0 5%; /* Asegura que no se pegue a los bordes */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 2rem 5%;
 }
 
 .reseñas-item {
-    background-color: #FFFFFF; /* FONDO: Blanco Puro (Alto contraste para legibilida) */
     padding: 1.5rem;
     border-radius: 10px;
-    border-left: 5px solid #5D0067; /* BORDER: Violeta Profundo */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    text-align: left;
-    color:#0D1321; /* TEXT: Azul Marino (Asegura legibilidad sobre fondo blanco) */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
 }
 
-.reseñas-item p {
-    font-style: italic;
-    margin-bottom: 0.7rem;
-    color: #0D1321; /* TEXT: Azul Marino (Asegura legibilidad sobre fondo blanco) */
+.reseñas-item:hover {
+    transform: translateY(-5px);
 }
 
-.reseñas-item footer {
-    font-weight: 700;
-    color: #FFC72C; /* TEXT: Dorado Acento Claro sobre fondo blanco */
-    font-size: 0.9rem;
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.4); /* Sombra para mejor lectura del dorado sobre el blanco */
-}
-
-@media (min-width: 768px) {
-    .reseñas-grid-page {
-        grid-template-columns: repeat(2. 1fr);
-    }
-}
-
-/* --- 7. Sección Contacto --- */
+/* Contacto Section */
 .contact-section-page {
-    padding: 3rem 5% 6rem 5%;
-    background-color: #f7f7f7; /* FONDO: Gris/Blanco Roto */
+    padding: 2rem 5%;
+    text-align: center;
 }
 
 .contact-form {
-    max-width: 550px;
+    max-width: 600px;
     margin: 0 auto;
-    padding: 2rem;
-    background-color: #FFFFFF; /* FONDO: Blanco puro */
-    border: 1px solid #004D40; /* BORDER: Verde Oscuro/Teal */
-    border-radius: 10px;
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .contact-form label {
-    display: block;
-    margin-bottom: 1rem;
-    font-weight: 700;
-    color: #5D0067; /* TEXT: Violeta Profundo */
+    text-align: left;
+    color: #0D1321;
 }
 
-.contact-form input, 
-.contact-form textarea {
-    width: 100%;
+.contact-form input, .contact-form textarea {
     padding: 0.8rem;
-    margin-top: 0.5rem;
-    border: 1px solid #004D40; /* BORDER: Verde Oscuro/Teal */
+    border: 1px solid #5D0067;
     border-radius: 5px;
-    font-family: 'Montserrat', sans-serif;
-    color: #0D1321; /* TEXT: Azul Marino (Asegura legibilidad al escribir) */
-    background-color: #f7f7f7; /* FONDO: Gris/Blanco Roto */
 }
 
 .contact-form button {
-    display: inline-block;
-    background-color: #5D0067; /* FONDO: Violeta Profundo */
-    color: #FFC72C; /* TEXT: Dorado */
+    background: #8BC34A;
+    color: #0D1321;
     border: none;
-    padding: 0.8rem 2rem;
-    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 50px;
     cursor: pointer;
-    border-radius: 5rem;
-    transition: background-color 0.3s ease;
-    font-weight: 700;
-    text-transform: uppercase;
-    width: 100%;
+    transition: background 0.3s;
 }
 
 .contact-form button:hover {
-    background-color: #FFC72C; /* FONDO: Dorado */
-    color: #5D0067; /* TEXT: Violeta Profundo */
+    background: #5D0067;
+    color: #f7f7f7;
 }
 
-/* --- 8. Media Queries Globales y Desktop --- */
-@media (min-width: 768px) {
-    .menu-toggle {
-        display: none;
-    }
-    .main-nav {
-        display: block;
-    }
-    .hero-page-section {
-        flex-direction: row;
-        text-align: left;
-        align-items: center;
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-    }
-    .multimedia-img {
-        height: 350px;
-    }
-    .hero-bannerv{
-        flex: 1;
-        padding: 0;
-        max-height: 380px;
-        overflow: hidden;
-        border-radius: 10px;
-        margin-left: 20px;
-    }
-    .hero-content {
-        padding-left: 5%;
-        flex: 1;
-        padding-right: 0;
-    }
-    .summary-section {
-        padding: 4rem 5%;
-    }
-    .page-content section {
-        padding: 3rem 5%;
-    }
-    .contact-form button {
-        width: auto;
-        float: right;
-    }
-}
-
-/* --- 9. Footer --- */
-footer {
-    background-color: #5D0067; /* FONDO: Violeta Profundo */
-    color: #f7f7f7; /* TEXT: Gris/Blanco Roto */
-    text-align: center;
-    padding: 1.5rem 5%;
-    font-size: 0.9rem;
-    margin-top: auto;
-}
-
-/* --- 10. Media Query para pantallas muy pequeñas --- */
-@media (max-width: 767px) {
-    .menu-toggle {
-        display: block;
-    }
-    .main-nav {
-        display: none;
-        position: absolute;
-        top: 90px;
-        right: 5%;
-        background-color: #5D0067;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        width: 200px;
-    }
-    .main-nav.open {
-        display: block;
-    }
-    .main-nav ul {
-        flex-direction: column;
-        padding: 0;
-    }
-    .main-nav ul li {
-        margin: 0;
-    }
-    .main-nav ul li a {
-        padding: 1rem;
-        border-bottom: 1px solid rgba(247, 247, 247, 0.2); /* BORDER: Gris/Blanco Roto semi-transparente */
-    }
-    .main-nav ul li a:last-child {
-        border-bottom: none;
-    }
-}
-
-/* --- 11. Estilos para el Modal Funcional (Controlado por JS) --- */
+/* Modal Carrito */
 .modal {
     display: none;
     position: fixed;
@@ -540,207 +336,137 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 9999;
-    justify-content: center;
+    background: rgba(0,0,0,0.5);
+    justify-content: flex-end;
     align-items: center;
 }
 
 .modal.show {
-    display: flex; /* Activado por JavaScript */
-}
-
-.modal-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    max-width: 90%;
-    max-height: 90%;
-}
-
-.modal-content img {
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
-    object-fit: contain;
-    border: 5px solid #FFC72C; /* BORDER: Dorado */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-
-.close-button {
-    position: absolute;
-    top: -30px;
-    right: -30px;
-    color: #f7f7f7; /* TEXT: Gris/Blanco Roto */
-    font-size: 3rem;
-    font-weight: bold;
-    cursor: pointer;
-    line-height: 1;
-    transition: color 0.3s;
-}
-
-.close-button:hover {
-    color: #FFC72C; /* TEXT: Dorado */
-}
-
-/* --- TRUCO CSS PARA EVITAR AUTOCOMPLETAR VISUAL --- */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    /* Forzamos que el fondo y el color de texto vuelvan a ser los normales */
-    -webkit-box-shadow: 0 0 0px 1000px #F7F7F7 inset !important; /* FONDO: Gris/Blanco Roto */
-    -webkit-text-fill-color: #0D1321 !important; /* TEXT: Azul Marino */
-}
-
-/* --- Estilos del Modal del Carrito (E-commerce) --- */
-.modal-content.cart-modal-content {
-    background-color: #FFFFFF; /* FONDO: Blanco Puro */
-    padding: 2.5rem;
-    border-radius: 12px;
-    max-width: 500px;
-    max-height: 90vh;
-    overflow-y: auto;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    position: relative;
-    color: #0D1321; /* TEXT: Azul Marino */
 }
 
-.cart-modal-content h3 {
-    color: #5D0067; /* TEXT: Violeta Profundo */
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    width: 100%;
-}
-
-.cart-items-container {
-    width: 100%;
-    max-height: 300px;
+.cart-modal-content {
+    background: #f7f7f7;
+    padding: 2rem;
+    width: 400px;
+    height: 100%;
     overflow-y: auto;
-    border-top: 1px solid #004D40; /* BORDER: Verde Oscuro/Teal */
-    border-bottom: 1px solid #004D40; /* BORDER: Verde Oscuro/Teal */
-    padding: 1rem 0;
-    margin-bottom: 1.5rem;
+    position: relative;
 }
 
 .cart-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 0;
-    border-bottom: 1px dotted #004D40; /* BORDER: Verde Oscuro/Teal */
-    font-size: 1rem;
-    color: #0D1321;  /* TEXT: Azul Marino */
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
 }
 
-.cart.item:last-child {
-    border-bottom: none;
+.quantity-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
-.cart-item span {
-    color: #0D1321; /* TEXT: Azul Marino */
+.quantity-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: #5D0067;
+    color: #f7f7f7;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
-.cart-item-price {
-    font-weight: 700;
-    color: #5D0067; /* TEXT: Violeta Profundo */
-    margin-left: auto;
-    padding-left: 10px;
+.quantity-btn:hover {
+    background: #8BC34A;
 }
 
 .remove-from-cart-btn {
-    background: none;
+    background: #c62828;
+    color: #f7f7f7;
     border: none;
-    color: #F44336; /* TEXT: Rojo Para remover */
-    font-size: 0.85rem;
+    padding: 5px 10px;
+    border-radius: 4px;
     cursor: pointer;
-    margin-left: 10px;
-    transition: color 0.2s;
-}
-
-.remove-from-cart-btn:hover {
-    color: #D32F2F;
-}
-
-.empty-cart-message {
-    text-align: center;
-    color: #777;
-    padding: 20px;
-    font-style: italic;
 }
 
 .cart-summary {
-    width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: 700;
+    padding: 1rem 0;
+    font-weight: bold;
+}
+
+.clear-cart-btn {
+    background: #c62828;
+    color: #f7f7f7;
+    border: none;
+    padding: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
     margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 2px solid #5D0067; /* BORDER: Violeta Profundo */
 }
 
-.cart-total-amount {
-    color: #8BC34A; /* TEXT: Verde Lima para el total */
+/* Footer */
+footer {
+    background-color: #5D0067;
+    color: #f7f7f7;
+    text-align: center;
+    padding: 1rem;
 }
 
-/* El botón de checkout usa .cta-button */
-#checkout-btn {
-    width: 100%;
-    margin-top: 1rem;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    background-color: #FFC72C; /* FOND: Dorado */
-    box-shadow: 0 4px #5D0067; /* SHADOW: Violeta Profundo */
-    color: #0D1321; /* TEXT: Azul Marino */
-}
-
-#checkout-btn:hover {
-    background-color: #8BC34A; /* FOND: Verde Lima */
-    color: #0D1321; /* TEXT: Azul Marino */
-}
-
-/* Ajustes para el botón de cerrar del modal del carrito */
-.cart-modal-content .close-button {
-    top: 10px; 
-    right: 15px;
-    font-size: 2.5rem; 
-    color: #5D0067; /* TEXT: Violeta Profundo */
-}
-.cart-modal-content .close-button:hover {
-    color: #FFC72C; /* TEXT: Dorado */
-}
-
-/* Media query para móviles en el carrito */
-@media (max-width: 600px) {
-    .modal-content.cart-modal-content {
-        max-width: 95%;
-        padding: 1.5rem;
+/* Media Queries para Responsivo */
+@media (max-width: 992px) {
+    .hero-page-section {
+        flex-direction: column;
     }
-    .cart-item {
-        flex-wrap: wrap; 
-        gap: 5px;
+
+    .main-nav {
+        display: none;
     }
-    .remove-from-cart-btn {
-        margin-left: 0;
+
+    .main-nav.open {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
         width: 100%;
-        text-align: right;
-        font-size: 0.75rem;
+        background: #5D0067;
     }
-    .cart-item span:first-child {
-        width: 70%; 
+
+    .main-nav ul {
+        flex-direction: column;
     }
-    .cart-item-price {
-        width: 25%;
-        text-align: right;
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .contact-form {
+        padding: 0 1rem;
     }
 }
 
+@media (max-width: 768px) {
+    .card-grid-small {
+        flex-direction: column;
+    }
+
+    .productos-container {
+        flex-direction: column;
+    }
+}
+
+/* Para animación épica */
+.hero-title {
+    opacity: 0; /* Inicial para reveal */
+}
+
+.hero-title span {
+    display: inline-block; /* Para animar individualmente */
+    will-change: transform, opacity; /* Optimización GSAP */
+}
 /* ===== ANIMACIÓN DE BIENVENIDA ÉPICA ===== */
 .hero-page-section {
     position: relative;
@@ -754,27 +480,33 @@ input:-webkit-autofill:active {
     background: linear-gradient(135deg, #5D0067 0%, #0D1321 70%, #004d40 100%);
 }
 
-/* Título con efecto máquina de escribir */
+
+/* Título con efecto máquina de escribir (base para GSAP) */
 .typing-title {
     font-size: 3.5rem;
     font-weight: 700;
     color: #FFC72C;
-    overflow: hidden;
     white-space: nowrap;
-    border-right: 4px solid #FFC72C;
-    width: 0;
-    animation: typing 3.5s steps(20) forwards, blink 0.8s infinite;
+    overflow: hidden;
+    display: inline-block; /* Para que GSAP anime correctamente */
     margin: 0;
 }
 
-.greeting {
-    display: inline-block;
-}
-
+/* Cursor blink */
 .cursor {
     color: #8BC34A;
     animation: blink 0.8s infinite;
 }
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Cada letra span (para GSAP) */
+.greeting span {
+    display: inline-block; /* Para animar individualmente */
+}
+
 
 /* Animaciones de aparición escalonada */
 .fade-in {
@@ -846,11 +578,11 @@ input:-webkit-autofill:active {
     animation: float 6s infinite linear;
 }
 
-.floating-stars span:nth-child(1) { top: 20px; left: 50px; animation-delay: 0s; }
-.floating-stars span:nth-child(2) { top: 80px; left: 150px; animation-delay: 1s; }
-.floating-stars span:nth-child(3) { top: 40px; left: 300px; animation-delay: 2s; }
-.floating-stars span:nth-child(4) { top: 120px; left: 80px; animation-delay: 3s; }
-.floating-stars span:nth-child(5) { top: 60px; left: 220px; animation-delay: 4s; }
+.floating-stars span:nth-child(1) { top: 30px; left: 60px; animation-delay: 0s; }
+.floating-stars span:nth-child(2) { top: 90px; left: 160px; animation-delay: 1s; }
+.floating-stars span:nth-child(3) { top: 50px; left: 310px; animation-delay: 2s; }
+.floating-stars span:nth-child(4) { top: 130px; left: 90px; animation-delay: 3s; }
+.floating-stars span:nth-child(5) { top: 70px; left: 230px; animation-delay: 4s; }
 
 /* Keyframes */
 @keyframes typing {
@@ -880,108 +612,4 @@ input:-webkit-autofill:active {
     .hero-page-section { flex-direction: column; text-align: center; padding: 4rem 5%; }
     .hero-buttons { justify-content: center; }
     .floating-stars { display: none; }
-}
-/* HERO CON ANIMACIONES GSAP */
-#hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5%;
-    background: linear-gradient(135deg, #5D0067 0%, #0D1321 50%, #004d40 100%);
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-content {
-    max-width: 600px;
-    z-index: 2;
-}
-
-.hero-title {
-    font-size: 4.5rem;
-    margin: 0;
-    line-height: 1.1;
-    color: #FFC72C;
-}
-
-.hero-title .line {
-    display: block;
-    overflow: hidden;
-}
-
-.hero-subtitle {
-    font-size: 1.4rem;
-    color: #F7F7F7;
-    margin: 2rem 0;
-    opacity: 0.9;
-}
-
-.hero-highlight {
-    font-size: 1.2rem;
-    color: #8BC34A;
-    font-weight: 600;
-    margin-top: 3rem;
-    background: rgba(139, 195, 74, 0.2);
-    padding: 1rem 1.5rem;
-    border-radius: 50px;
-    display: inline-block;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-    margin: 2.5rem 0;
-    flex-wrap: wrap;
-}
-
-.main-cta {
-    background: #FFC72C;
-    color: #0D1321;
-    padding: 1.2rem 2.5rem;
-    border-radius: 50px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s;
-}
-
-.main-cta:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(255, 199, 44, 0.4);
-}
-
-.secondary-cta {
-    background: transparent;
-    color: #F7F7F7;
-    border: 2px solid #8BC34A;
-    padding: 1.2rem 2.5rem;
-    border-radius: 50px;
-}
-
-.secondary-cta:hover {
-    background: #8BC34A;
-    color: #0D1321;
-}
-
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-logo {
-    width: 400px;
-    height: auto;
-    filter: drop-shadow(0 0 30px rgba(255, 199, 44, 0.5));
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-    #hero { flex-direction: column; text-align: center; padding: 10vh 5%; }
-    .hero-title { font-size: 3.5rem; }
-    .hero-buttons { justify-content: center; }
-    .hero-logo { width: 300px; margin-top: 2rem; }
 }
