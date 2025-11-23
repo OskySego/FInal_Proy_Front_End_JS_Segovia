@@ -4,72 +4,496 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Servicios | Osky Diseños</title>
-    <link rel="stylesheet" href="css\styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="logo">
-            <a href="index.html">
-                <img src="img/Logo_for_Osky_Diseños.svg" alt="Osky Diseños Logo" class="header-logo">
-            </a>
-        </div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html" class="active">Tienda de Servicios</a></li>
-                <li><a href="resenas.html">Reseñas</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-        <button class="menu-toggle" aria-label="Abrir Menú">&#9776;</button>
-        <div class="cart-icon-container" id="cart-icon">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="cart-quantity" class="cart-quantity-badge">0</span>
-        </div>
-    </header>
-    
-    <main class="page-content">
-        <section class="page-header">
-            <h2>Nuestra Tienda de Diseños Digitales</h2>
-            <p class="subtitle">Encuentra templates y diseños web/gráficos personalizables para impulsar tu marca.</p>
-        </section>
-
-        <section id="productos">
-            <div class="productos-container" id="products-container">
-                <!-- Productos cargados dinámicamente con API -->
-            </div>
-        </section>
-    </main>
-
-    <div id="image-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal()">&times;</span>
-            <img id="modal-image" src="" alt="Imagen ampliada">
-        </div>
+<header class="main-header">
+    <div class="logo">
+        <a href="index.html">
+            <img src="img/Logo_for_Osky_Diseños.svg" alt="Osky Diseños Logo" class="header-logo">
+        </a>
     </div>
 
-    <div id="cart-modal" class="modal">
-        <div class="modal-content cart-modal-content">
-            <span class="close-button" id="close-cart-btn">&times;</span>
-            <h3>Tu Carrito de Diseños</h3>
-            <div id="cart-items" class="cart-items-container">
-                <p class="empty-cart-message">El carrito está vacío. ¡Añade algunos diseños!</p>
-            </div>
-            <div class="cart-summary">
-                <span>Total:</span>
-                <span class="cart-total-amount">$<span id="cart-total">0.00</span></span>
-            </div>
-            <button id="checkout-btn" class="cta-button">Realizar Compra</button>
-        </div>
-    </div>
-        
-    <footer>
-        <p>&copy; 2025 Osky Diseños | Portfolio de Diseño Web y Gráfico</p>
-    </footer>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html" class="active">Productos</a></li>
+            <li><a href="reseñas.html">Reseñas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
 
-    <script src="js/script.js"></script>
+    <div class="cart-icon" id="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-quantity" class="cart-quantity">0</span>
+    </div>
+</header>
+
+<!-- =========================
+     SECCIÓN: CATÁLOGO POR GRUPOS
+     Reemplaza la sección id="productos" por este bloque
+     ========================= -->
+<section id="productos" class="product-groups-section">
+  <div class="page-header">
+    <h2>Nuestra Tienda de Diseños</h2>
+    <p class="subtitle">Paquetes pensados para emprendedores y marcas que buscan impacto real. Elige el que se adapte a tu necesidad — nosotros nos encargamos del resto.</p>
+  </div>
+
+  <!-- ========== Grupo: Diseño Web ========== -->
+  <section class="product-group">
+    <h3 class="group-title">Diseño Web</h3>
+    <p class="group-sub">Soluciones web enfocadas en resultados: presencia, captación y conversión.</p>
+
+    <div class="pricing-grid">
+      <!-- Landing Page Express -->
+      <article class="pricing-card">
+        <div class="card-image">
+            <img src="img/Landing Page Express.jpg" alt="Ejemplo de Landing Page Express diseñado por Osky Diseños">
+        </div>
+        <div class="card-head">
+          <h4>Landing Page Express</h4>
+          <div class="price"><span class="amount">$135.000</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Página rápida y efectiva para captar leads y presentar tu servicio en tiempo récord.</p>
+        <ul class="card-features">
+          <li>Diseño 100% a medida</li>
+          <li>Responsive (móvil y desktop)</li>
+          <li>Integración WhatsApp</li>
+          <li>Formulario de contacto</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(10, 'Landing Page Express', 135000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+
+      <!-- Web Profesional Completa -->
+      <article class="pricing-card featured">
+        <div class="card-image">
+            <img src="img/banner_web_profesional.svg" alt="Ejemplo de sitio web profesional diseñado por Osky Diseños">0
+        </div>
+        <div class="card-head">
+          <h4>Web Profesional Completa</h4>
+          <div class="price"><span class="amount">$210.000</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Sitio completo con páginas internas, UX pensado para convertir y presencia de marca sólida.</p>
+        <ul class="card-features">
+          <li>Hasta 8 secciones/páginas</li>
+          <li>SEO técnico básico</li>
+          <li>Optimización de carga</li>
+          <li>Integración redes + analítica</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(11, 'Web Profesional Completa', 210000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+
+      <!-- Pack Web + Branding -->
+      <article class="pricing-card">
+        <div class="card-image">
+            <img src="img/Pack web + branding.png" alt="Ejemplo de Pack Web + Branding by Osky Diseños">
+        </div>
+        <div class="card-head">
+          <h4>Pack Web + Branding</h4>
+          <div class="price"><span class="amount">$177.600</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Web + identidad visual inicial para lanzar tu marca con impacto y coherencia.</p>
+        <ul class="card-features">
+          <li>Web Landing + 3 secciones</li>
+          <li>Logotipo básico</li>
+          <li>Paleta y tipografía</li>
+          <li>Soporte 30 días</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(12, 'Pack Web + Branding', 177600)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+
+      <!-- Mantenimiento Mensual -->
+      <article class="pricing-card">
+        <div class="card-image">
+            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+        </div>
+        <div class="card-head">
+          <h4>Mantenimiento Mensual</h4>
+          <div class="price"><span class="amount">$20.000</span><small>/mes</small></div>
+        </div>
+        <p class="card-lead">Actualizaciones, backups y soporte técnico para que tu web nunca pare.</p>
+        <ul class="card-features">
+          <li>Actualizaciones y seguridad</li>
+          <li>Backup mensual</li>
+          <li>Pequeños cambios incluidos</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(13, 'Mantenimiento Mensual', 20000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== Grupo: Diseño Gráfico ========== -->
+  <section class="product-group">
+    <h3 class="group-title">Diseño Gráfico</h3>
+    <p class="group-sub">Piezas visuales que conectan con tu público y elevan la percepción de tu marca.</p>
+
+    <div class="pricing-grid">
+      <article class="pricing-card">
+        <div class="card-image">
+            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+        </div>
+        <div class="card-head">
+          <h4>Pack Flyers + Banners</h4>
+          <div class="price"><span class="amount">$60.000</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Piezas para campañas y eventos con diseño profesional y archivos listos para imprimir.</p>
+        <ul class="card-features">
+          <li>3 propuestas iniciales</li>
+          <li>Archivos listos para imprenta</li>
+          <li>Formato adaptable redes</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(14, 'Pack Flyers + Banners', 60000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+
+      <article class="pricing-card">
+        <div class="card-image">
+            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+        </div>
+        <div class="card-head">
+          <h4>Tarjeta Digital Interactiva</h4>
+          <div class="price"><span class="amount">$40.000</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Tarjeta digital con enlace clic-to-call, WhatsApp y contacto directo.</p>
+        <ul class="card-features">
+          <li>Diseño adaptado a tu marca</li>
+          <li>Enlace y QR funcional</li>
+          <li>Envío en PDF/PNG</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(15, 'Tarjeta Digital Interactiva', 40000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+
+      <article class="pricing-card featured">
+        <div class="card-image">
+            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+        </div>
+        <div class="card-head">
+          <h4>Pack Banners Redes Sociales</h4>
+          <div class="price"><span class="amount">$65.000</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Series de banners optimizados para campañas y escalables a múltiples formatos.</p>
+        <ul class="card-features">
+          <li>3 tamaños por pieza</li>
+          <li>Optimizado para Ads</li>
+          <li>Entrega en .jpg / .png</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(16, 'Pack Banners Redes Sociales', 65000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== Grupo: Branding ========== -->
+  <section class="product-group">
+    <h3 class="group-title">Branding</h3>
+    <p class="group-sub">Identidad visual profesional para que tu marca sea reconocible y coherente en todos los puntos de contacto.</p>
+
+    <div class="pricing-grid">
+      <article class="pricing-card">
+        <div class="card-image">
+            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+        </div>
+        <div class="card-head">
+          <h4>Logotipo Profesional (3 propuestas)</h4>
+          <div class="price"><span class="amount">$87.000</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Variantes pensadas para adaptarse a todos los usos: digital e impresión.</p>
+        <ul class="card-features">
+          <li>3 propuestas iniciales</li>
+          <li>Entrega en vectores</li>
+          <li>Guía de uso básica</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(17, 'Logotipo Profesional (3 propuestas)', 87000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+
+      <article class="pricing-card featured">
+        <div class="card-image">
+            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+        </div>
+        <div class="card-head">
+          <h4>Pack Branding Esencial</h4>
+          <div class="price"><span class="amount">$120.000</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Identidad completa para comenzar con una marca consistente y profesional.</p>
+        <ul class="card-features">
+          <li>Logotipo + paleta + tipografías</li>
+          <li>Mockups básicos</li>
+          <li>Mini manual de marca</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(18, 'Pack Branding Esencial', 120000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+
+      <article class="pricing-card">
+        <div class="card-image">
+            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+        </div>
+        <div class="card-head">
+          <h4>Manual de Marca Básico</h4>
+          <div class="price"><span class="amount">$45.000</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Documento con reglas esenciales para el uso correcto de la marca.</p>
+        <ul class="card-features">
+          <li>Colores, tipografías y aplicaciones</li>
+          <li>Versiones del logo</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(19, 'Manual de Marca Básico', 45000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== Grupo: Social Media ========== -->
+  <section class="product-group">
+    <h3 class="group-title">Social Media</h3>
+    <p class="group-sub">Contenido estratégico y visual para mantener tu presencia activa y profesional en redes.</p>
+
+    <div class="pricing-grid">
+      <article class="pricing-card featured">
+        <div class="card-image">
+            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+        </div>
+        <div class="card-head">
+          <h4>Pack 12 Posts</h4>
+          <div class="price"><span class="amount">$25.000</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Doce piezas diseñadas para reforzar tu comunicación mensual.</p>
+        <ul class="card-features">
+          <li>Diseño coherente con la marca</li>
+          <li>Formatos para Instagram y Facebook</li>
+          <li>Revisiones incluidas</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(20, 'Pack 12 Posts', 25000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+
+      <article class="pricing-card">
+        <div class="card-image">
+            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+        </div>
+        <div class="card-head">
+          <h4>Historias Animadas</h4>
+          <div class="price"><span class="amount">$18.000</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Historias con movimiento para destacar promociones y novedades.</p>
+        <ul class="card-features">
+          <li>Animaciones ligeras</li>
+          <li>Formato vertical listo</li>
+          <li>Optimizado para engagement</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(21, 'Historias Animadas', 18000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+
+      <article class="pricing-card">
+        <div class="card-image">
+            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+        </div>
+        <div class="card-head">
+          <h4>Portadas Profesionales</h4>
+          <div class="price"><span class="amount">$12.000</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Portadas y destacados para mejorar la estética de tu perfil.</p>
+        <ul class="card-features">
+          <li>Diseño adaptado a tu marca</li>
+          <li>Entrega rápida</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(22, 'Portadas Profesionales', 12000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== Grupo: Volantes (inventados) ========== -->
+  <section class="product-group">
+    <h3 class="group-title">Volantes & Flyers</h3>
+    <p class="group-sub">Soluciones rápidas y económicas para promoción local y eventos.</p>
+
+    <div class="pricing-grid">
+      <article class="pricing-card">
+        <div class="card-image">
+            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+        </div>
+        <div class="card-head">
+          <h4>Volante A5 - Diseño Rápido</h4>
+          <div class="price"><span class="amount">$8.000</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Diseño simple, 1 propuesta y entrega lista para imprimir.</p>
+        <ul class="card-features">
+          <li>Archivo PDF para imprenta</li>
+          <li>1 revisión incluida</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(23, 'Volante A5 - Diseño Rápido', 8000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+
+      <article class="pricing-card">
+        <div class="card-image">
+            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+        </div>
+        <div class="card-head">
+          <h4>Volante A4 - Premium</h4>
+          <div class="price"><span class="amount">$15.000</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Diseño más elaborado con 2 propuestas y preparación para imprenta.</p>
+        <ul class="card-features">
+          <li>2 propuestas</li>
+          <li>Archivos listos CMYK</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(24, 'Volante A4 - Premium', 15000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+
+      <article class="pricing-card">
+        <div class="card-image">
+            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+        </div>
+        <div class="card-head">
+          <h4>Pack 50 Volantes (Impresos)</h4>
+          <div class="price"><span class="amount">$30.000</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Diseño + impresión 50 unidades (opción económico para campañas locales).</p>
+        <ul class="card-features">
+          <li>Incluye diseño y entrega lista</li>
+          <li>Impresión en papel estándar</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(25, 'Pack 50 Volantes (Impresos)', 30000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== Grupo: Tarjetas Personales ========== -->
+  <section class="product-group">
+    <h3 class="group-title">Tarjetas Personales</h3>
+    <p class="group-sub">Opciones digitales e impresas para causar una excelente primera impresión.</p>
+
+    <div class="pricing-grid">
+      <article class="pricing-card">
+        <div class="card-image">
+            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+        </div>
+        <div class="card-head">
+          <h4>Tarjeta Digital - Básica</h4>
+          <div class="price"><span class="amount">$6.000</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Tarjeta digital simple con enlace y QR.</p>
+        <ul class="card-features">
+          <li>Formato web y PDF</li>
+          <li>1 revisión incluida</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(26, 'Tarjeta Digital - Básica', 6000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+
+      <article class="pricing-card">
+        <div class="card-image">
+            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+        </div>
+        <div class="card-head">
+          <h4>Tarjeta Impresa - Premium</h4>
+          <div class="price"><span class="amount">$12.000</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Diseño premium y entrega de archivos listos para impresión o impresión bajo demanda.</p>
+        <ul class="card-features">
+          <li>Diseño + impresión opcional</li>
+          <li>Acabado mate o brillo</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(27, 'Tarjeta Impresa - Premium', 12000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+
+      <article class="pricing-card">
+        <div class="card-image">
+            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+        </div>
+        <div class="card-head">
+          <h4>Pack 50 Tarjetas (Impresas)</h4>
+          <div class="price"><span class="amount">$22.000</span><small>ARS</small></div>
+        </div>
+        <p class="card-lead">Diseño y entrega de 50 tarjetas impresas, listo para repartir.</p>
+        <ul class="card-features">
+          <li>Diseño adaptado</li>
+          <li>50 unidades impresas</li>
+        </ul>
+        <div class="card-cta">
+          <button onclick="addToCart(28, 'Pack 50 Tarjetas (Impresas)', 22000)" class="cta-button">Añadir al carrito</button>
+          <a href="#contacto" class="secondary-cta">Consultar</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</section>
+
+<!-- ===================================================== -->
+<!-- ===================== MODAL IMÁGENES ================= -->
+<!-- ===================================================== -->
+
+<div id="image-modal" class="image-modal">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
+    <img id="modal-image" class="modal-content-img" src="" alt="Vista ampliada">
+</div>
+
+<!-- ===================================================== -->
+<!-- ======================= FOOTER ======================= -->
+<!-- ===================================================== -->
+
+<footer class="main-footer">
+    <p>&copy; 2025 Osky Diseños - Todos los derechos reservados.</p>
+</footer>
+
+<!-- Scripts -->
+<script src="js/script.js"></script>
+
 </body>
 </html>

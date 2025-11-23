@@ -613,3 +613,310 @@ footer {
     .hero-buttons { justify-content: center; }
     .floating-stars { display: none; }
 }
+.combo-card {
+    border: 2px solid #FFC72C; /* Dorado para destacar combos */
+    position: relative;
+    overflow: hidden;
+}
+
+.combo-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.7s;
+    z-index: -1;
+}
+
+.combo-card:hover::before {
+    left: 100%;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #666;
+    font-size: 1rem;
+    margin-right: 1rem;
+}
+
+.combo-price {
+    color: #FFC72C; /* Dorado para precio combo */
+    font-size: 1.8rem;
+}
+/* =========================
+   Pricing grid & product groups (integrado con el estilo existente)
+   Pegar al final de styles.css
+   ========================= */
+
+.product-groups-section {
+  padding: 2rem 0 4rem 0;
+  background: transparent;
+}
+
+.product-group {
+  margin: 0 auto 2.5rem auto;
+  max-width: 1200px;
+  padding: 1rem 5%;
+}
+
+.group-title {
+  font-family: 'Playfair Display', serif;
+  color: #5D0067;
+  font-size: 1.8rem;
+  margin-bottom: .25rem;
+}
+
+.group-sub {
+  color: #333;
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+}
+
+/* Grid */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Card */
+.pricing-card {
+  background: #f7f7f7;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px rgba(93,0,103,0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(13,19,33,0.04);
+}
+
+.pricing-card.featured {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 35px rgba(93,0,103,0.16);
+}
+
+/* Head */
+.card-head {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+  margin-bottom: 0.75rem;
+}
+
+.card-head h4 {
+  font-size: 1.05rem;
+  color: #5D0067;
+  margin: 0;
+}
+
+.price {
+  text-align: right;
+  font-weight: 700;
+  color: #0D1321;
+}
+
+.price .amount {
+  font-size: 1.6rem;
+  display:block;
+  line-height:1;
+}
+
+.price small { color:#666; font-weight:400; font-size:0.85rem; }
+
+/* Lead & features */
+.card-lead {
+  color: #333;
+  margin-bottom: 0.9rem;
+  font-size: 0.95rem;
+}
+
+.card-features {
+  list-style:none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  color: #444;
+}
+
+.card-features li {
+  padding: 0.5rem 0;
+  border-top: 1px solid rgba(13,19,33,0.04);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size: 0.95rem;
+}
+
+/* CTA area */
+.card-cta {
+  display:flex;
+  gap:10px;
+  align-items:center;
+  margin-top: 0.8rem;
+}
+
+.pricing-card .cta-button {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: #5D0067;
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px #8BC34A;
+}
+
+.pricing-card .cta-button:hover {
+  background: #8BC34A;
+  color: #0D1321;
+  box-shadow: 0 6px #5D0067;
+}
+
+.pricing-card .secondary-cta {
+  padding: 8px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #5D0067;
+  border: 2px solid rgba(93,0,103,0.08);
+  font-weight: 600;
+}
+
+/* Small screens */
+@media (max-width: 900px) {
+  .card-head { flex-direction: column; align-items:flex-start; gap:6px; }
+  .price { text-align: left; }
+}
+
+@media (max-width: 520px) {
+  .pricing-grid { gap: 14px; }
+  .pricing-card { padding: 1rem; }
+  .card-head h4 { font-size: 1rem; }
+  .price .amount { font-size: 1.3rem; }
+}
+/* ======================================= */
+/*   CORRECCIÓN DE COLORES PARA CONTRASTE   */
+/*   PALETA: Violeta – Verde – Dorado       */
+/* ======================================= */
+
+:root {
+  --violeta: #5D0067;
+  --verde: #8BC34A;
+  --dorado: #FFC72C;
+  --blanco: #f7f7f7;
+  --gris-claro: #eaeaea;
+  --lila-claro: #f3e6f8;
+}
+
+/* =========================
+   Box de productos (pricing cards)
+   ========================= */
+
+.pricing-card {
+  background: var(--lila-claro); /* fondo más claro */
+  color: #3b2342; /* violeta oscuro suave */
+}
+
+.pricing-card .card-head h4 {
+  color: var(--violeta);
+}
+
+.pricing-card .price .amount {
+  color: var(--violeta);
+}
+
+.pricing-card .card-lead {
+  color: #4d3357; /* violeta más claro */
+}
+
+/* Para fondos verdes */
+.product-group.green-bg .pricing-card {
+  background: rgba(255,255,255,0.15);
+  color: var(--blanco);
+}
+
+.product-group.green-bg .pricing-card h4,
+.product-group.green-bg .price .amount {
+  color: var(--dorado);
+}
+
+.product-group.green-bg .card-lead,
+.product-group.green-bg .card-features li {
+  color: var(--blanco);
+}
+
+/* =========================
+   ICONOS Y LISTAS
+   ========================= */
+
+.card-features li::before {
+  content: "✔";
+  color: var(--verde);
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+/* =========================
+   TEXTOS GENERALES
+   ========================= */
+
+.group-title {
+  color: var(--dorado);
+}
+
+.group-sub {
+  color: #eda4ff; /* violeta suave */
+}
+
+/* =========================
+   BOTONES
+   ========================= */
+
+.pricing-card .cta-button {
+  background: var(--violeta);
+  box-shadow: 0 4px var(--verde);
+}
+
+.pricing-card .cta-button:hover {
+  background: var(--verde);
+  color: #0D1321;
+  box-shadow: 0 4px var(--violeta);
+}
+
+.pricing-card .secondary-cta {
+  border-color: var(--violeta);
+  color: var(--violeta);
+}
+
+.pricing-card.green-bg .secondary-cta {
+  color: var(--dorado);
+  border-color: var(--dorado);
+}
+/* Imagen en la parte superior de cada tarjeta */
+.card-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+    background: #f0f0f0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.pricing-card:hover .card-image img {
+    transform: scale(1.08);
+}
+
+/* Tarjeta destacada (la del medio) con borde dorado */
+.pricing-card.featured .card-image {
+    border: 4px solid #FFC72C;
+    border-bottom: none;
+    border-radius: 16px 16px 0 0;
+}

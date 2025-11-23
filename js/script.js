@@ -1,8 +1,9 @@
-// js/script.js - Osky Diseños - Proyecto Final Talento Tech 2025
+// js/script.js - Osky Diseños - Versión estable y consolidada
 
+/* --- Estado del carrito --- */
 let cart = JSON.parse(localStorage.getItem('oskyCart')) || [];
 
-// Guardar carrito
+/* --- Helper: guardar y actualizar UI --- */
 const saveCart = () => {
     localStorage.setItem('oskyCart', JSON.stringify(cart));
     updateCartBadge();
@@ -11,7 +12,6 @@ const saveCart = () => {
     }
 };
 
-// Badge carrito
 const updateCartBadge = () => {
     const badge = document.getElementById('cart-quantity');
     if (!badge) return;
@@ -20,7 +20,7 @@ const updateCartBadge = () => {
     badge.style.display = total > 0 ? 'inline-flex' : 'none';
 };
 
-// Render carrito
+/* --- Render del carrito --- */
 const renderCart = () => {
     const container = document.getElementById('cart-items');
     const totalEl = document.getElementById('cart-total');
@@ -47,9 +47,9 @@ const renderCart = () => {
                 <small>Cantidad: ${item.quantity}</small>
             </div>
             <div class="quantity-controls">
-                <button class="quantity-btn" onclick="changeQuantity(${index}, -1)">−</button>
-                <span>${item.quantity}</span>
-                <button class="quantity-btn" onclick="changeQuantity(${index}, 1)">+</button>
+                <button class="quantity-btn" data-index="${index}" data-delta="-1">−</button>
+                <span class="quantity-label">${item.quantity}</span>
+                <button class="quantity-btn" data-index="${index}" data-delta="1">+</button>
             </div>
             <div>
                 <span class="cart-item-price">$${itemTotal.toLocaleString('es-AR')}</span><br>
@@ -61,41 +61,64 @@ const renderCart = () => {
 
     if (totalEl) totalEl.textContent = total.toLocaleString('es-AR');
 
-    // Animación GSAP para ítems
-    gsap.from(".cart-item", {
-        x: 50,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "back.out(1.7)"
+    // Animación GSAP (si está disponible)
+    if (window.gsap) {
+        try {
+            gsap.from(".cart-item", {
+                x: 50,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: "back.out(1.7)"
+            });
+        } catch (e) {
+            console.warn('GSAP falló en animación de cart-items:', e);
+        }
+    }
+
+    // Delegación de eventos para botones de cantidad y remover
+    // (usamos delegación para evitar problemas con listeners duplicados)
+    document.querySelectorAll('.quantity-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const idx = parseInt(e.currentTarget.dataset.index);
+            const delta = parseInt(e.currentTarget.dataset.delta);
+            changeQuantity(idx, delta);
+        });
     });
 
-    // Remover con animación
     document.querySelectorAll('.remove-from-cart-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
-            const index = parseInt(e.target.dataset.index);
-            gsap.to(container.children[index], {
-                x: -100,
-                opacity: 0,
-                scale: 0.8,
-                duration: 0.4,
-                ease: "power2.in",
-                onComplete: () => {
-                    cart.splice(index, 1);
-                    saveCart();
-                }
-            });
+            const idx = parseInt(e.currentTarget.dataset.index);
+            // animación de salida si gsap existe
+            if (window.gsap) {
+                const el = container.children[idx];
+                gsap.to(el, {
+                    x: -100,
+                    opacity: 0,
+                    scale: 0.8,
+                    duration: 0.35,
+                    ease: "power2.in",
+                    onComplete: () => {
+                        cart.splice(idx, 1);
+                        saveCart();
+                    }
+                });
+            } else {
+                cart.splice(idx, 1);
+                saveCart();
+            }
         });
     });
 };
 
-// Cambiar cantidad
+/* --- Cambiar cantidad --- */
 window.changeQuantity = (index, change) => {
+    if (!cart[index]) return;
     cart[index].quantity = Math.max(1, cart[index].quantity + change);
     saveCart();
 };
 
-// Agregar al carrito
+/* --- Agregar al carrito --- */
 window.addToCart = (id, name, price) => {
     const existing = cart.find(item => item.id === id);
     if (existing) {
@@ -104,47 +127,53 @@ window.addToCart = (id, name, price) => {
         cart.push({ id, name, price, quantity: 1 });
     }
     saveCart();
-    alert(`"${name}" añadido al carrito!`);
+
+    // Notificación (alert como fallback)
+    if (window.Toastify) {
+        // Si usás una librería de toasts, la podés integrar acá.
+    } else {
+        // Mensaje simple
+        alert(`"${name}" añadido al carrito!`);
+    }
 };
 
-// DOM Ready
+/* --- MODAL DE IMAGENES (open/close) --- */
+window.openModal = (imgSrc) => {
+    const modal = document.getElementById('image-modal');
+    const img = document.getElementById('modal-image');
+    if (!modal || !img) return;
+
+    img.src = imgSrc;
+    modal.classList.add('show');
+
+    if (window.gsap) {
+        gsap.fromTo(img, { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "power2.out" });
+    }
+};
+
+window.closeModal = () => {
+    const modal = document.getElementById('image-modal');
+    if (!modal) return;
+    modal.classList.remove('show');
+};
+
+/* --- DOMContentLoaded: inicializaciones seguras --- */
 document.addEventListener('DOMContentLoaded', () => {
-    // Cargar productos con imágenes de diseños web/gráficos
-    const productsContainer = document.getElementById('products-container');
+
+    /* --- 1) Cargar productos dinámicos SI existe el contenedor (soporte para 'products-container' y 'productos-container') --- */
+    const productsContainerEnglish = document.getElementById('products-container');
+    const productsContainerSpanish = document.getElementById('productos-container');
+    const productsContainer = productsContainerEnglish || productsContainerSpanish;
+
     if (productsContainer) {
-        productsContainer.innerHTML = '<p class="loading">Cargando diseños...</p>';
-        // Imágenes de la búsqueda (integradas como mock API para diseños)
+        // Si tu HTML ya tiene productos estáticos (como en productos.html) este bloque no hará nada.
+        // Datos mock (si querés usar carga dinámica en otra página)
         const designProducts = [
-            {
-                id: 1,
-                name: "Official Business Flyer Design",
-                price: 60000,
-                image: "https://graphicsfamily.com/wp-content/uploads/edd/2021/07/Official-Business-Flyer-Design-Free-PSD-1180x664.jpg"
-            },
-            {
-                id: 2,
-                name: "Graphic Design Agency DL Card",
-                price: 40000,
-                image: "https://brandpacks.com/wp-content/uploads/edd/2018/10/graphic-designer-dl-card-template-2.jpg"
-            },
-            {
-                id: 3,
-                name: "Professional Business Flyer Template",
-                price: 135000,
-                image: "https://static.vecteezy.com/system/resources/previews/027/430/297/non_2x/professional-business-flyer-design-template-vector.jpg"
-            },
-            {
-                id: 4,
-                name: "Business Poster Design Template",
-                price: 65000,
-                image: "https://cdn.dribbble.com/userupload/9025946/file/original-28758d12f19fdc350ed917fbd3507189.jpg?format=webp&resize=400x300&vertical=center"
-            },
-            {
-                id: 5,
-                name: "Multipurpose Flyer Template",
-                price: 87000,
-                image: "https://graphicsfamily.com/wp-content/uploads/edd/2024/12/Multipurpose-Flyer-Template-01-870x489.jpg"
-            }
+            { id: 1, name: "Official Business Flyer Design", price: 60000, image: "https://graphicsfamily.com/wp-content/uploads/edd/2021/07/Official-Business-Flyer-Design-Free-PSD-1180x664.jpg" },
+            { id: 2, name: "Graphic Design Agency DL Card", price: 40000, image: "https://brandpacks.com/wp-content/uploads/edd/2018/10/graphic-designer-dl-card-template-2.jpg" },
+            { id: 3, name: "Professional Business Flyer Template", price: 135000, image: "https://static.vecteezy.com/system/resources/previews/027/430/297/non_2x/professional-business-flyer-design-template-vector.jpg" },
+            { id: 4, name: "Business Poster Design Template", price: 65000, image: "https://cdn.dribbble.com/userupload/9025946/file/original-28758d12f19fdc350ed917fbd3507189.jpg?format=webp&resize=400x300&vertical=center" },
+            { id: 5, name: "Multipurpose Flyer Template", price: 87000, image: "https://graphicsfamily.com/wp-content/uploads/edd/2024/12/Multipurpose-Flyer-Template-01-870x489.jpg" }
         ];
 
         productsContainer.innerHTML = '';
@@ -161,107 +190,89 @@ document.addEventListener('DOMContentLoaded', () => {
             productsContainer.appendChild(card);
         });
 
-        // Animación GSAP para cards
-        gsap.from(".card-product", {
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.2,
-            ease: "back.out(1.7)"
-        });
+        if (window.gsap) {
+            gsap.from(".card-product", {
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "back.out(1.7)"
+            });
+        }
     }
 
-    // Modal carrito
+    /* --- 2) Modal carrito: abrir/cerrar --- */
     const cartIcon = document.getElementById('cart-icon');
     const cartModal = document.getElementById('cart-modal');
     const closeCartBtn = document.getElementById('close-cart-btn');
+
     if (cartIcon && cartModal && closeCartBtn) {
         cartIcon.addEventListener('click', () => {
             cartModal.classList.add('show');
             renderCart();
-            gsap.fromTo(".cart-modal-content", 
-                { x: '100%', opacity: 0, scale: 0.9 }, 
-                { x: 0, opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.7)" }
-            );
+            if (window.gsap) {
+                gsap.fromTo(".cart-modal-content", { x: '100%', opacity: 0, scale: 0.95 }, { x: 0, opacity: 1, scale: 1, duration: 0.55, ease: "back.out(1.7)" });
+            }
         });
+
         closeCartBtn.addEventListener('click', () => {
-            gsap.to(".cart-modal-content", {
-                x: '100%',
-                opacity: 0,
-                scale: 0.9,
-                duration: 0.4,
-                ease: "back.in(1.7)",
-                onComplete: () => cartModal.classList.remove('show')
-            });
-        });
-    }
-
-    // Checkout
-    const checkoutBtn = document.getElementById('checkout-btn');
-    if (checkoutBtn) checkoutBtn.addEventListener('click', () => {
-        if (cart.length === 0) return alert('Carrito vacío');
-        alert('¡Gracias! Te contacto por WhatsApp.');
-        cart = [];
-        saveCart();
-    });
-
-    updateCartBadge();
-});
-// Animación de typing letra por letra con GSAP (para precisión con fonts variables)
-document.addEventListener('DOMContentLoaded', () => {
-    const greeting = document.getElementById('greeting-text');
-    if (greeting) {
-        const text = greeting.textContent.trim();
-        greeting.innerHTML = ''; // Limpiamos el texto original
-
-        // Dividimos el texto en spans individuales
-        text.split('').forEach((char) => {
-            const span = document.createElement('span');
-            span.textContent = char === ' ' ? '\u00A0' : char; // Manejamos espacios
-            span.style.opacity = 0; // Inicialmente invisible
-            span.style.transform = 'translateY(20px)'; // Inicial translate para efecto
-            greeting.appendChild(span);
-        });
-
-        // Animamos cada letra con GSAP
-        gsap.to(greeting.querySelectorAll('span'), {
-            opacity: 1,
-            y: 0,
-            duration: 0.1,  // Rápido por letra
-            stagger: 0.1,   // Delay secuencial para typing
-            ease: "power2.out",
-            delay: 0.5,     // Delay para que empiece después de cargar
-            onComplete: () => {
-                gsap.to('.cursor', { opacity: 0, duration: 0.8, repeat: -1, yoyo: true }); // Blink cursor
+            if (window.gsap) {
+                gsap.to(".cart-modal-content", {
+                    x: '100%',
+                    opacity: 0,
+                    scale: 0.95,
+                    duration: 0.35,
+                    ease: "power2.in",
+                    onComplete: () => cartModal.classList.remove('show')
+                });
+            } else {
+                cartModal.classList.remove('show');
             }
         });
     }
 
-    // Resto de tu JS (carrito, fetch, etc.) queda igual
-});
-// GSAP Letter-by-Letter Typing Animation for Hero Title (to handle variable fonts and 'ñ')
-if (document.getElementById('greeting-text')) {
+    /* --- 3) Checkout --- */
+    const checkoutBtn = document.getElementById('checkout-btn');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) return alert('Carrito vacío');
+            alert('¡Gracias! Te contacto por WhatsApp.');
+            cart = [];
+            saveCart();
+        });
+    }
+
+    /* --- 4) Animación tipo "typing" (solo una vez si existe el elemento) --- */
     const greeting = document.getElementById('greeting-text');
-    const text = greeting.textContent;
-    greeting.innerHTML = ''; // Clear original text
+    if (greeting && window.gsap) {
+        // Protegemos contra ejecuciones repetidas
+        if (!greeting.dataset.animated) {
+            greeting.dataset.animated = 'true';
+            const text = greeting.textContent.trim();
+            greeting.innerHTML = '';
+            text.split('').forEach(char => {
+                const span = document.createElement('span');
+                span.textContent = char === ' ' ? '\u00A0' : char;
+                span.style.opacity = 0;
+                greeting.appendChild(span);
+            });
 
-    // Split text into spans for each letter
-    text.split('').forEach(char => {
-        const span = document.createElement('span');
-        span.textContent = char === ' ' ? '\u00A0' : char; // Handle spaces
-        span.style.opacity = 0; // Initial hidden
-        greeting.appendChild(span);
-    });
-
-    // Animate each letter with GSAP
-    gsap.to(greeting.querySelectorAll('span'), {
-        opacity: 1,
-        duration: 0.1, // Fast per letter
-        stagger: 0.1, // Sequential typing effect
-        ease: "power2.out",
-        delay: 0.5, // Start after load
-        onComplete: () => {
-            gsap.to('.cursor', { opacity: 0, duration: 0.8, repeat: -1, yoyo: true }); // Blink infinite
+            gsap.to(greeting.querySelectorAll('span'), {
+                opacity: 1,
+                y: 0,
+                duration: 0.09,
+                stagger: 0.06,
+                ease: "power2.out",
+                delay: 0.45,
+                onComplete: () => {
+                    // cursor blink si existe
+                    const cursor = document.querySelector('.cursor');
+                    if (cursor) gsap.to(cursor, { opacity: 0, duration: 0.8, repeat: -1, yoyo: true });
+                }
+            });
         }
-    });
-}
+    }
+
+    /* --- 5) Inicial UI --- */
+    updateCartBadge();
+});
