@@ -276,3 +276,24 @@ document.addEventListener('DOMContentLoaded', () => {
     /* --- 5) Inicial UI --- */
     updateCartBadge();
 });
+// Menú móvil - FUNCIONA PERFECTO
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const body = document.body;
+
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('open');
+            body.classList.toggle('menu-open');
+        });
+
+        // Cerrar al hacer clic fuera
+        document.addEventListener('click', (e) => {
+            if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                mainNav.classList.remove('open');
+                body.classList.remove('menu-open');
+            }
+        });
+    }
+});

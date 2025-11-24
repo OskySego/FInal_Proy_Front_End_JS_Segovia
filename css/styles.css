@@ -61,35 +61,39 @@ main {
     width: auto;
 }
 
+/* Menú responsive - Móvil */
 .menu-toggle {
     display: none;
     background: none;
     border: none;
-    color: #f7f7f7;
-    font-size: 2rem;
+    font-size: 1.8rem;
+    color: #FFC72C;
     cursor: pointer;
+    padding: 10px;
+}
+
+.main-nav {
+    transition: all 0.4s ease;
 }
 
 .main-nav ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
+    gap: 2rem;
 }
 
-.main-nav ul li a {
+.main-nav a {
+    color: white;
     text-decoration: none;
-    color: #f7f7f7;
-    font-weight: 600;
-    padding: 0 1.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
-.main-nav ul li a:hover,
-.main-nav ul li a.active {
-    background-color: #8BC34A; /* Verde Lima */
-    color: #5D0067; /* Violeta Profundo */
+.main-nav a:hover, .main-nav a.active {
+    color: #FFC72C;
 }
-
 .cart-icon-container {
     position: relative;
     cursor: pointer;
@@ -416,35 +420,46 @@ footer {
     padding: 1rem;
 }
 
-/* Media Queries para Responsivo */
-@media (max-width: 992px) {
-    .hero-page-section {
-        flex-direction: column;
-    }
-
-    .main-nav {
-        display: none;
-    }
-
-    .main-nav.open {
-        display: block;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: #5D0067;
-    }
-
-    .main-nav ul {
-        flex-direction: column;
-    }
-
+/* En pantallas pequeñas: ocultar menú y mostrar botón hamburguesa */
+@media (max-width: 995px) {
     .menu-toggle {
         display: block;
     }
 
-    .contact-form {
-        padding: 0 1rem;
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        height: 100vh;
+        background: #5D0067;
+        padding: 80px 20px 20px;
+        transition: left 0.4s ease;
+        z-index: 1000;
+    }
+
+    .main-nav.open {
+        left: 0;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .main-nav a {
+        font-size: 1.4rem;
+        display: block;
+        padding: 10px 0;
+    }
+
+    /* Fondo oscuro cuando el menú está abierto */
+    body.menu-open::before {
+        content: '';
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0,0,0,0.8);
+        z-index: 999;
     }
 }
 
