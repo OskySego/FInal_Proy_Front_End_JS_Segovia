@@ -139,7 +139,6 @@ main {
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .hero-logo {
@@ -273,23 +272,86 @@ main {
     background: #8BC34A;
 }
 
-/* Reseñas Section - Grid */
+/* RESEÑAS - VERSIÓN FINAL PERFECTA */
+.reviews-hero {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #5D0067, #004D40);
+    color: white;
+}
+.reviews-hero h1 { 
+    font-size: 3.5rem; 
+    color: #FFC72C; 
+    font-family: 'Playfair Display', serif; 
+}
+.reviews-stats { 
+    margin-top: 2rem; 
+}
+.rating-big { 
+    font-size: 3.5rem; 
+    font-weight: bold; 
+}
+.rating-big span { 
+    font-size: 2rem; 
+}
+.stars-big { 
+    font-size: 2.5rem; 
+    color: #FFC72C; 
+}
+
 .reseñas-grid-page {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 2rem 5%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 5%;
+    background: #f7f7f7;
+    min-height: 70vh;
 }
 
 .reseñas-item {
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(40px);
 }
 
 .reseñas-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(93,0,103,0.25);
+}
+
+.reseñas-item .review-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.reseñas-item .review-avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 4px solid #FFC72C;
+    object-fit: cover;
+}
+
+.reseñas-item .stars {
+    color: #FFC72C;
+    font-size: 1.4rem;
+}
+
+.reseñas-item p {
+    font-style: italic;
+    color: #444;
+    margin: 1rem 0;
+    line-height: 1.6;
+}
+
+.reseñas-item small {
+    color: #888;
 }
 
 /* Contacto Section */
@@ -421,7 +483,7 @@ footer {
 }
 
 /* En pantallas pequeñas: ocultar menú y mostrar botón hamburguesa */
-@media (max-width: 995px) {
+@media (max-width: 992px) {
     .menu-toggle {
         display: block;
     }
@@ -510,10 +572,12 @@ footer {
 /* Cursor blink */
 .cursor {
     color: #8BC34A;
+    font-weight: bold;
     animation: blink 0.8s infinite;
 }
 
 @keyframes blink {
+    0%, 100% {opacity: ;}
     50% { opacity: 0; }
 }
 
@@ -934,4 +998,233 @@ footer {
     border: 4px solid #FFC72C;
     border-bottom: none;
     border-radius: 16px 16px 0 0;
+}
+.reviews-hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #5D0067, #004D40);
+    color: white;
+}
+.reviews-hero h1 { font-size: 3rem; margin: 0; color: #FFC72C; }
+.stats { margin-top: 1rem; font-size: 2.5rem; font-weight: bold; }
+.stats span { font-size: 1.5rem; }
+
+.reviews-container {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+.review-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+.review-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(93,0,103,0.2);
+}
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.review-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid #FFC72C;
+}
+.stars { color: #FFC72C; font-size: 1.3rem; }
+.review-card p { font-style: italic; line-height: 1.6; }
+.review-card small { color: #888; }
+.loading { text-align: center; font-size: 1.2rem; color: #666; padding: 4rem; }
+/* Animaciones premium */
+.typewriter {font-family:'Playfair Display',serif; font-size:3.5rem; color:#FFC72C; white-space:nowrap; overflow:hidden;}
+.cursor {animation:blink 1s infinite; color:#8BC34A;}
+@keyframes blink {50%{opacity:0;}}
+
+.shine {position:relative; overflow:hidden;}
+.shine::after {
+    content:""; position:absolute; top:0; left:-100%; width:50%; height:100%;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition:0.6s;
+}
+.shine:hover::after {left:100%;}
+
+/* ESTRELLAS DORADAS FLOTANTES */
+.floating-stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #FFC72C;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #FFC72C;
+    animation: float 20s infinite linear;
+}
+
+.star::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #FFC72C);
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+@keyframes float {
+    0% { transform: translateY(0) translateX(0) rotate(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100vh) translateX(100px) rotate(360deg); opacity: 0; }
+}
+
+/* Logo animado */
+.animated-logo {
+    filter: drop-shadow(0 0 20px rgba(255,199,44,0.5));
+    transition: transform 0.3s ease;
+}
+
+.animated-logo:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+/* CONTENEDOR DE LA IMAGEN PRINCIPAL */
+.hero-image-container {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45%;
+    max-width: 500px;
+    z-index: 2;
+}
+
+.hero-main-image:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 30px 60px rgba(255,199,44,0.3);
+    filter: drop-shadow(0 0 50px rgba(255,199,44,0.6));
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .hero-image-container {
+        position: relative;
+        width: 80%;
+        margin: 3rem auto 0;
+        right: auto;
+        top: auto;
+        transform: none;
+    }
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* HERO CON TEXTO A LA DERECHA Y ESPACIO PERFECTO */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(135deg, #5D0067 0%, #0D1321 100%);
+    overflow: hidden;
+    padding: 0 5%;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1400px;
+    gap: 4rem; /* Espacio amplio entre imagen y texto */
+    flex-direction: row-reverse; /* ← ESTO ES LA CLAVE: texto a la derecha, imagen a la izquierda */
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-text-content {
+    flex: 1;
+    max-width: 650px;
+    margin-left: auto; /* Empuja el texto hacia la derecha */
+    text-align: left;
+}
+
+.hero-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    max-width: 600px;
+}
+
+.hero-main-image {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 28px;
+    border: 6px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(45deg, #FFC72C, #8BC34A, #5D0067) border-box;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    filter: drop-shadow(0 0 40px rgba(255,199,44,0.4));
+    transition: all 0.7s ease;
+}
+
+.hero-main-image:hover {
+    transform: translateY(-20px) scale(1.04);
+    filter: drop-shadow(0 0 60px rgba(255,199,44,0.7));
+}
+
+/* RESPONSIVE PERFECTO */
+@media (max-width: 992px) {
+    .hero-container {
+        gap: 4rem;
+    }
+    .hero-text-content {
+        max-width: 550px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 5rem;
+    }
+    .hero-text-content {
+        margin-left: 0;
+        text-align: center;
+        max-width: 100%;
+    }
+    .hero-image-wrapper {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 2rem 5%;
+    }
+    .hero-main-image {
+        max-width: 340px;
+        border-radius: 20px;
+    }
 }
