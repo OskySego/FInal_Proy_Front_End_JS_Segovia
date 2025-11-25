@@ -1,8 +1,4 @@
 // js/script.js - PROYECTO FINAL TALENTO TECH - OSKY DISEÑOS
-// FUNCIONA 100% EN TODAS LAS PÁGINAS - SIN CAÍDAS
-
-let cart = JSON.parse(localStorage.getItem('oskyCart')) || [];
-
 // === GUARDAR Y ACTUALIZAR CARRITO ===
 const saveCart = () => {
     localStorage.setItem('oskyCart', JSON.stringify(cart));
@@ -57,6 +53,7 @@ const renderCart = () => {
 
     totalEl.textContent = total.toLocaleString('es-AR');
 };
+let cart = JSON.parse(localStorage.getItem("oskyCart")) || [];
 
 // === AÑADIR AL CARRITO ===
 window.addToCart = (id, name, price) => {
@@ -186,9 +183,17 @@ gsap.timeline({defaults: {ease: "power3.out"}})
         ease: "back.out(1.4)"
     }, "-=1.4");
 
-    // Resto del carrito (igual que antes, sin cambios)
-    let cart = JSON.parse(localStorage.getItem("oskyCart")) || [];
    
+   // === EVENTO PARA BOTONES DE CANTIDAD ===
+    document.addEventListener('click', (e) => {
+        if (e.target.matches('.quantity-btn')) {
+            const index = parseInt(e.target.dataset.index);
+            const delta = parseInt(e.target.dataset.delta);
+            cart[index].quantity = Math.max(1, cart[index].quantity + delta);
+            saveCart();
+        }
+    });
+
     updateCartBadge();
 
     // MENÚ MÓVIL
@@ -208,48 +213,36 @@ gsap.timeline({defaults: {ease: "power3.out"}})
         });
     }
 
-    // RESEÑAS - SOLO EN resenas.html (AHORA FUNCIONA PERFECTO)
-    if (document.getElementById('reviews-container')) {
+          // ====== RESEÑAS LILA OSCURO - 100% FUNCIONA (TALENTO TECH) ======
+    const reviewsContainer = document.getElementById('reviews-container');
+    if (reviewsContainer) {
+        reviewsContainer.innerHTML = '';
+
         const reseñas = [
-            { nombre: "Lucía Martínez", texto: "¡Osky es un genio! Mi web quedó hermosa y ya tengo más clientes. 100% recomendado.", estrellas: 5, foto: "https://i.pravatar.cc/150?img=1" },
-            { nombre: "Martín González", texto: "El mejor diseñador con el que trabajé. Profesional, rápido y con muy buen gusto.", estrellas: 5, foto: "https://i.pravatar.cc/150?img=3" },
-            { nombre: "Valentina Ruiz", texto: "Mi branding quedó espectacular. Ahora mi marca se ve premium y confiable.", estrellas: 5, foto: "https://i.pravatar.cc/150?img=5" },
-            { nombre: "Santiago Pérez", texto: "Atención personalizada, cambios rápidos y resultado final impecable. ¡Un crack!", estrellas: 5, foto: "https://i.pravatar.cc/150?img=8" },
-            { nombre: "Camila Fernández", texto: "Los flyers y banners que me hizo duplicaron mis ventas en Instagram. ¡Gracias!", estrellas: 5, foto: "https://i.pravatar.cc/150?img=12" },
-            { nombre: "Joaquín López", texto: "Mi tarjeta digital es hermosa y súper funcional. Todos me piden el contacto ahora.", estrellas: 5, foto: "https://i.pravatar.cc/150?img=19" },
-            { nombre: "Sofía Aranda", texto: "Excelente trabajo. Mi sitio web carga rapidísimo y se ve profesional en todos los dispositivos.", estrellas: 5, foto: "https://i.pravatar.cc/150?img=22" },
-            { nombre: "Mateo Díaz", texto: "Recomendado al 1000%. Volvería a contratar sin dudar. ¡Gracias Osky!", estrellas: 5, foto: "https://i.pravatar.cc/150?img=29" }
+            { nombre: "Lucía Martínez", texto: "¡Osky es un genio! Mi web quedó hermosa y ya tengo más clientes." },
+            { nombre: "Martín González", texto: "El mejor diseñador con el que trabajé. Profesional y rápido." },
+            { nombre: "Valentina Ruiz", texto: "Mi branding quedó espectacular. Ahora mi marca se ve premium." },
+            { nombre: "Santiago Pérez", texto: "Atención personalizada y resultado impecable. ¡Un crack!" },
+            { nombre: "Camila Fernández", texto: "Los flyers duplicaron mis ventas en Instagram. ¡Gracias!" },
+            { nombre: "Joaquín López", texto: "Mi tarjeta digital es hermosa y súper funcional." }
         ];
 
-        const container = document.getElementById('reviews-container');
-
-        reseñas.forEach(r => {
-            const card = document.createElement('div');
-            card.className = 'review-card';
-            card.innerHTML = `
-                <div class="review-header">
-                    <img src="${r.foto}" alt="${r.nombre}" class="review-avatar">
-                    <div>
+        reseñas.forEach((r, i) => {
+            reviewsContainer.innerHTML += `
+                <div class="review-card">
+                    <img src="https://i.pravatar.cc/150?img=${i + 5}" alt="${r.nombre}" loading="lazy">
+                    <div class="review-content">
                         <h4>${r.nombre}</h4>
-                        <div class="stars">${'★'.repeat(r.estrellas)}${'☆'.repeat(5 - r.estrellas)}</div>
+                        <div class="stars">★★★★★</div>
+                        <p>"${r.texto}"</p>
+                        <small>— Hace ${3 + i} días</small>
                     </div>
                 </div>
-                <p>"${r.texto}"</p>
-                <small>— Hace ${Math.floor(Math.random() * 20) + 3} días</small>
             `;
-            container.appendChild(card);
         });
 
-        // ANIMACIÓN PERFECTA CON GSAP
-        if (window.gsap) {
-            gsap.from('.review-card', {
-                y: 60,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.15,
-                ease: "back.out(1.7)",
-                delay: 0.2
-            });
-        }
+        gsap.from('.review-card', {
+            y: 80, opacity: 0, duration: 1, stagger: 0.2, ease: "back.out(1.7)"
+        });
     }
 });
