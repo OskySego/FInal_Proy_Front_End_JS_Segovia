@@ -83,6 +83,41 @@ document.addEventListener('click', (e) => {
 
 // === TODO LO QUE NECESITA DOM ESTÁ AQUÍ DENTRO ===
 document.addEventListener('DOMContentLoaded', () => {
+    // ====== PRODUCTOS CENTRADOS + HEADER FUNCIONA 100% ======
+    const productsContainer = document.getElementById('products-container');
+    if (productsContainer) {
+        fetch('https://fakestoreapi.com/products')
+            .then(res => res.json())
+            .then(products => {
+                // Limpiar y centrar
+                productsContainer.innerHTML = '<div class="products-wrapper">' + 
+                    products.map(p => `
+                        <div class="product-card">
+                            <img src="${p.image}" alt="${p.title}" loading="lazy">
+                            <div class="product-info">
+                                <h3>${p.title.substring(0, 60)}${p.title.length > 60 ? '...' : ''}</h3>
+                                <p class="price">$${p.price.toFixed(2)}</p>
+                                <button class="add-btn" data-id="${p.id}" data-title="${p.title}" data-price="${p.price}">
+                                Agregar al carrito
+                                </button>
+                            </div>
+                        </div>
+                    `).join('') + '</div>';
+
+                // Animación
+                gsap.from(".product-card", { y: 60, opacity: 0, stagger: 0.15, duration: 0.8, ease: "back.out(1.7)" });
+
+                // Botones SIN ROMPER NADA (usando data-attributes)
+                document.querySelectorAll('.add-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const id = btn.dataset.id;
+                        const title = btn.dataset.title;
+                        const price = parseFloat(btn.dataset.price);
+                        addToCart(id, title, price);
+                });
+            });
+        });
+    }
 
     // ANIMACIÓN DEL LOGO CON GIRO, ESCALA Y GLOW
     gsap.fromTo(".animated-logo", 
@@ -108,11 +143,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Typewriter
-    const title = document.querySelector(".typewriter");
-    if (title) {
-        const text = title.textContent.replace("|", "");
-        title.innerHTML = "";
+    // ====== TYPEWRITER UNIVERSAL – FUNCIONA EN INDEX Y PRODUCTOS ======
+    const typewriters = document.querySelectorAll('.typewriter');
+    
+    typewriters.forEach((title) => {
+        const text = title.textContent.trim();
+        title.innerHTML = '';
+        
         let i = 0;
         const type = () => {
             if (i < text.length) {
@@ -120,11 +157,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 i++;
                 setTimeout(type, 90);
             } else {
-                title.innerHTML += '<span class="cursor">|</span>';
+                title.innerHTML += '<span class="cursor"></span>';
             }
         };
-        setTimeout(type, 1000);
-    }
+        setTimeout(type, 500);
+    });
 
     // ANIMACIÓN PREMIUM DE LA IMAGEN PRINCIPAL
     gsap.fromTo(".hero-main-image",
@@ -167,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // Animación de entrada con dirección correcta
-gsap.timeline({defaults: {ease: "power3.out"}})
+    gsap.timeline({defaults: {ease: "power3.out"}})
     .from(".hero-text-content > *", {
         opacity: 0,
         x: 100,  // entra desde la derecha
@@ -201,13 +238,23 @@ gsap.timeline({defaults: {ease: "power3.out"}})
     const mainNav = document.querySelector('.main-nav');
 
     if (menuToggle && mainNav) {
-        menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
             mainNav.classList.toggle('open');
         });
 
+        // Cerrar al hacer click en un enlace
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mainNav.classList.remove('open');
+            });
+        });
+
+        // Cerrar al hacer click fuera
         document.addEventListener('click', (e) => {
             if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                menuToggle.classList.remove('active');
                 mainNav.classList.remove('open');
             }
         });

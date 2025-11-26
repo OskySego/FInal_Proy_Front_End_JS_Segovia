@@ -14,44 +14,44 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+  <header class="main-header">
+        <div class="logo">
+            <a href="index.html"><img src="img/Logo_for_Osky_Diseños.svg" alt="Logo de Osky Diseños, representando creatividad en diseño web y gráfico" class="header-logo"></a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html" class="activa">Servicios</a></li>
+                <li><a href="resenas.html">Reseñas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <!-- BOTÓN HAMBURGUESA (solo se ve en móvil) -->
+        <button class="menu-toggle"><i class="fas fa-bars"></i></button>
 
-<header class="main-header">
-    <div class="logo">
-        <a href="index.html">
-            <img src="img/Logo_for_Osky_Diseños.svg" alt="Osky Diseños Logo" class="header-logo">
-        </a>
+      
+        <div class="cart-icon" id="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+              <span id="cart-quantity" class="cart-quantity">0</span>
+        </div>
+  </header>
+
+    <section class="hero parallax">
+    <div class="intro-content">
+        <h1 class="typewriter">Nuestra Tienda de Diseños</h1>
+        <p class="intro-subtitle">Paquetes pensados para emprendedores que buscan impacto real</p>
     </div>
+    </section>
 
-    <nav class="main-nav">
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="productos.html" class="active">Productos</a></li>
-            <li><a href="reseñas.html">Reseñas</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-    </nav>
-
-    <div class="cart-icon" id="cart-icon">
-        <i class="fas fa-shopping-cart"></i>
-        <span id="cart-quantity" class="cart-quantity">0</span>
-    </div>
-</header>
-
-<!-- =========================
+   <!-- =========================
      SECCIÓN: CATÁLOGO POR GRUPOS
      Reemplaza la sección id="productos" por este bloque
      ========================= -->
-<section id="productos" class="product-groups-section">
-  <div class="page-header">
-    <h2>Nuestra Tienda de Diseños</h2>
-    <p class="subtitle">Paquetes pensados para emprendedores y marcas que buscan impacto real. Elige el que se adapte a tu necesidad — nosotros nos encargamos del resto.</p>
-  </div>
-
+  <section id="productos-container" >
   <!-- ========== Grupo: Diseño Web ========== -->
   <section class="product-group">
     <h3 class="group-title">Diseño Web</h3>
-    <p class="group-sub">Soluciones web enfocadas en resultados: presencia, captación y conversión.</p>
-
+    <p class="group-sub">Elegancias y profesionalismo todo junto en un solo lugar para que tus paginas web sean especiales.</p>
     <div class="pricing-grid">
       <!-- Landing Page Express -->
       <article class="pricing-card">
@@ -122,7 +122,7 @@
       <!-- Mantenimiento Mensual -->
       <article class="pricing-card">
         <div class="card-image">
-            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+            <img src="img/mantenimiento-para-una-pagina-web-scaled.jpg" alt="Hacemos el mantenimiento de tu pagina web">
         </div>
         <div class="card-head">
           <h4>Mantenimiento Mensual</h4>
@@ -150,7 +150,7 @@
     <div class="pricing-grid">
       <article class="pricing-card">
         <div class="card-image">
-            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+            <img src="img/Pack Flyer + Banner.png" alt="Sitio web profesional diseñado por Osky">
         </div>
         <div class="card-head">
           <h4>Pack Flyers + Banners</h4>
@@ -170,7 +170,7 @@
 
       <article class="pricing-card">
         <div class="card-image">
-            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+            <img src="img/digital-business-card_professional.webp" alt="hacemos tustarjetas digitales profesionales diseñado por Osky">
         </div>
         <div class="card-head">
           <h4>Tarjeta Digital Interactiva</h4>
@@ -190,7 +190,7 @@
 
       <article class="pricing-card featured">
         <div class="card-image">
-            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+            <img src="img/banner_redes_sociales.svg" alt="banners profesionales diseñado por Osky">
         </div>
         <div class="card-head">
           <h4>Pack Banners Redes Sociales</h4>
@@ -218,7 +218,7 @@
     <div class="pricing-grid">
       <article class="pricing-card">
         <div class="card-image">
-            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+            <img src="img/vector-degradado-logotipo-colorido-pajaro_343694-1365.avif" alt="creamos tu logotipo profesional diseñado por Osky">
         </div>
         <div class="card-head">
           <h4>Logotipo Profesional (3 propuestas)</h4>
@@ -238,7 +238,7 @@
 
       <article class="pricing-card featured">
         <div class="card-image">
-            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+            <img src="img/pack_branding.jpg" alt="Sitio web profesional diseñado por Osky">
         </div>
         <div class="card-head">
           <h4>Pack Branding Esencial</h4>
@@ -258,7 +258,7 @@
 
       <article class="pricing-card">
         <div class="card-image">
-            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+            <img src="img/manualdemarca.png" alt="manual de marca profesional diseñado por Osky">
         </div>
         <div class="card-head">
           <h4>Manual de Marca Básico</h4>
@@ -285,7 +285,7 @@
     <div class="pricing-grid">
       <article class="pricing-card featured">
         <div class="card-image">
-            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+            <img src="img/post.jpg" alt="Sitio web profesional diseñado por Osky">
         </div>
         <div class="card-head">
           <h4>Pack 12 Posts</h4>
@@ -305,7 +305,7 @@
 
       <article class="pricing-card">
         <div class="card-image">
-            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+            <img src="img/historias animadas.avif" alt="Sitio web profesional diseñado por Osky">
         </div>
         <div class="card-head">
           <h4>Historias Animadas</h4>
@@ -325,7 +325,7 @@
 
       <article class="pricing-card">
         <div class="card-image">
-            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+            <img src="img/portada pofesional.png" alt="Sitio web profesional diseñado por Osky">
         </div>
         <div class="card-head">
           <h4>Portadas Profesionales</h4>
@@ -352,7 +352,7 @@
     <div class="pricing-grid">
       <article class="pricing-card">
         <div class="card-image">
-            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+            <img src="img/volanteA5.png" alt="Sitio web profesional diseñado por Osky">
         </div>
         <div class="card-head">
           <h4>Volante A5 - Diseño Rápido</h4>
@@ -371,7 +371,7 @@
 
       <article class="pricing-card">
         <div class="card-image">
-            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+            <img src="img/volanteA4.jpg" alt="Sitio web profesional diseñado por Osky">
         </div>
         <div class="card-head">
           <h4>Volante A4 - Premium</h4>
@@ -390,7 +390,7 @@
 
       <article class="pricing-card">
         <div class="card-image">
-            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+            <img src="img/pack50.webp" alt="Sitio web profesional diseñado por Osky">
         </div>
         <div class="card-head">
           <h4>Pack 50 Volantes (Impresos)</h4>
@@ -417,7 +417,7 @@
     <div class="pricing-grid">
       <article class="pricing-card">
         <div class="card-image">
-            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+            <img src="img/tarjetabasica.webp" alt="Sitio web profesional diseñado por Osky">
         </div>
         <div class="card-head">
           <h4>Tarjeta Digital - Básica</h4>
@@ -436,7 +436,7 @@
 
       <article class="pricing-card">
         <div class="card-image">
-            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+            <img src="img/tarjetaimpresa.webp" alt="Sitio web profesional diseñado por Osky">
         </div>
         <div class="card-head">
           <h4>Tarjeta Impresa - Premium</h4>
@@ -455,7 +455,7 @@
 
       <article class="pricing-card">
         <div class="card-image">
-            <img src="img/web-profesional.jpg" alt="Sitio web profesional diseñado por Osky">
+            <img src="img/pack50.webp" alt="Sitio web profesional diseñado por Osky">
         </div>
         <div class="card-head">
           <h4>Pack 50 Tarjetas (Impresas)</h4>
@@ -474,15 +474,6 @@
     </div>
   </section>
 </section>
-
-<!-- ===================================================== -->
-<!-- ===================== MODAL IMÁGENES ================= -->
-<!-- ===================================================== -->
-
-<div id="image-modal" class="image-modal">
-    <span class="close-modal" onclick="closeModal()">&times;</span>
-    <img id="modal-image" class="modal-content-img" src="" alt="Vista ampliada">
-</div>
 
 <!-- ===================================================== -->
 <!-- ======================= FOOTER ======================= -->
