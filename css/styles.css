@@ -57,10 +57,12 @@ main {
     font-size: 1.5rem;
     color: #FFC72C;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 2000;
 }
 .main-nav {
-    transition: all 0.4s ease;}
+    transition: all 0.4s ease;
+    z-index: 1500;
+}
 .main-nav ul {
     list-style: none;
     display: flex;
@@ -426,9 +428,11 @@ main {
 /* En pantallas pequeñas: ocultar menú y mostrar botón hamburguesa */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: block;}
+        display: block;
+        z-index: 2000;
+    }
 .main-nav {
-        position: fixed;
+    position: fixed;
     top: 0;
     left: -100%;
     width: 100%;
@@ -437,7 +441,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    z-index: 1500;
     transition: left 0.4s ease;
     }
 .main-nav.open {

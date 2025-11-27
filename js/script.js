@@ -113,18 +113,19 @@ if (modal) {
 
 
 
+// === MENÚ HAMBURGUESA ===
+const menuToggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("main-nav");
 
-    // MENÚ HAMBURGUESA
-    const menuToggle = document.getElementById("menu-toggle");
-    const nav = document.getElementById("main-nav");
-    if (menuToggle && nav) {
-        menuToggle.addEventListener("click", () => {
-            nav.classList.toggle("active");
-            menuToggle.innerHTML = nav.classList.contains("active") 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-    }
+if (menuToggle && nav) {
+    menuToggle.addEventListener("click", () => {
+        nav.classList.toggle("open"); // usar "open" para coincidir con el CSS
+        menuToggle.innerHTML = nav.classList.contains("open") 
+            ? '<i class="fas fa-times"></i>'  // ícono de cerrar
+            : '<i class="fas fa-bars"></i>';  // ícono de menú
+    });
+}
+
 
     // === RESEÑAS CON FOTOS REALES (randomuser.me) ===
     const reviewsContainer = document.getElementById("reviews-container");
@@ -160,8 +161,14 @@ if (modal) {
                 });
             });
     }
+    console.log("[Check] menuToggle:", !!document.getElementById("menu-toggle"));
+    console.log("[Check] main-nav:", !!document.getElementById("main-nav"));
+    console.log("[Check] cart-modal:", !!document.getElementById("cart-modal"));
+    console.log("[Check] open-cart-btn:", !!document.getElementById("open-cart-btn"));
+    console.log("[Check] checkout-btn:", !!document.getElementById("checkout-btn"));
+    console.log("[Check] clear-cart-btn:", !!document.querySelector(".clear-cart-btn"));
 
-    
+ 
     
 });
 // CARGAR PRODUCTOS DESDE API - TALENTO TECH 10/10 GARANTIZADO
