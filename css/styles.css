@@ -52,25 +52,29 @@ main {
     display: none;
     background: none;
     border: none;
-    font-size: 1.8rem;
+    font-size: rem;
     color: #FFC72C;
     cursor: pointer;
-    padding: 10px;}
+    z-index: 1001;
+}
 .main-nav {
     transition: all 0.4s ease;}
 .main-nav ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
     gap: 2rem;}
 .main-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;}
+    color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: 0.3s;
+}
 .main-nav a:hover, .main-nav a.active {
-    color: #FFC72C;}
+    background: #FFD700;
+    color: #000;}
 .cart-icon-container {
     position: relative;
     cursor: pointer;
@@ -100,7 +104,7 @@ main {
     padding: 3.5rem 5%;
     text-align: center;
     background: linear-gradient(135deg, #5D0067 0%, #004D40 100%); /* Violeta a Verde */
-    color: #f7f7f7;
+    color: #f7b0b0;
     border-bottom: 5px solid #8BC34A; /* Verde Lima */}
 .hero-content {
     flex: 1;}
@@ -226,7 +230,7 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     padding: 4rem 5%;
-    background: #f7f7f7;
+    background: #9c54e4;
     min-height: 70vh;}
 .reseñas-item {
     background: white;
@@ -262,6 +266,7 @@ main {
     color: #888;}
 /* Contacto Section */
 .contact-section-page {
+    background: #9c54e4;
     padding: 2rem 5%;
     text-align: center;}
 .contact-form {
@@ -288,86 +293,151 @@ main {
 .contact-form button:hover {
     background: #5D0067;
     color: #f7f7f7;}
-/* Modal Carrito */
-.modal {
+/* CARRITO LATERAL DERECHO + DESENFOQUE DEL FONDO - TALENTO TECH 10/10 */
+#cart-modal {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
-    justify-content: flex-end;
-    align-items: center;}
-.modal.show {
-    display: flex;}
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);           /* ¡DESENFOCA TODO EL FONDO! */
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 9999;
+    justify-content: flex-end;             /* Abre desde la derecha */
+    align-items: stretch;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+#cart-modal.show {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
 .cart-modal-content {
-    background: #f7f7f7;
-    padding: 2rem;
-    width: 400px;
+    background: linear-gradient(135deg, #1e1e2e, #16213e);
+    width: 420px;
+    max-width: 90%;
     height: 100%;
+    padding: 2rem;
     overflow-y: auto;
-    position: relative;}
+    box-shadow: -10px 0 40px rgba(255, 215, 0, 0.3);
+    border-left: 4px solid #ffd700;
+    color: #fff;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+}
+
+#cart-modal.show .cart-modal-content {
+    transform: translateX(0);
+}
+
+.close-cart {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
 .cart-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
-    border-bottom: 1px solid #eee;}
+    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(255,215,0,0.2);
+}
+
 .quantity-controls {
     display: flex;
-    gap: 10px;
-    align-items: center;}
+    gap: 12px;
+    align-items: center;
+}
+
 .quantity-btn {
-    width: 30px;
-    height: 30px;
+    width: 38px;
+    height: 38px;
+    background: #ffd700;
+    color: #000;
     border: none;
-    background: #5D0067;
-    color: #f7f7f7;
     border-radius: 50%;
-    cursor: pointer;}
-.quantity-btn:hover {
-    background: #8BC34A;}
-.remove-from-cart-btn {
-    background: #c62828;
-    color: #f7f7f7;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;}
-.cart-summary {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 0;
-    font-weight: bold;}
-.clear-cart-btn {
-    background: #c62828;
-    color: #f7f7f7;
-    border: none;
-    padding: 1rem;
-    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
     cursor: pointer;
-    margin-top: 1rem;}
-/* Footer */
-footer {
-    background-color: #5D0067;
-    color: #f7f7f7;
+}
+
+.quantity-btn:hover {
+    background: #fff;
+    transform: scale(1.1);
+}
+
+.remove-from-cart-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cart-summary {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    padding: 1.5rem 0;
     text-align: center;
-    padding: 1rem;}
+    border-top: 2px solid #ffd700;
+    margin-top: 2rem;
+}
+
+#checkout-btn, .clear-cart-btn {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#checkout-btn {
+    background: #ffd700;
+    color: #000;
+}
+
+.clear-cart-btn {
+    background: #e74c3c;
+    color: white;
+}
 /* En pantallas pequeñas: ocultar menú y mostrar botón hamburguesa */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     .menu-toggle {
         display: block;}
 .main-nav {
         position: fixed;
-        top: 0;
-        left: -100%;
-        width: 80%;
-        height: 100vh;
-        background: #5D0067;
-        padding: 80px 20px 20px;
-        transition: left 0.4s ease;
-        z-index: 1000;}
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #6b0f9c, #2d0b4e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: left 0.4s ease;
+    }
 .main-nav.open {
         left: 0;}
 .main-nav ul {
@@ -397,35 +467,7 @@ footer {
 .hero-title span {
     display: inline-block; /* Para animar individualmente */
     will-change: transform, opacity; /* Optimización GSAP */}
-/* ===== ANIMACIÓN DE BIENVENIDA ÉPICA ===== */
-.hero-page-section {
-    position: relative;
-    overflow: hidden;
-    padding: 5rem 5%;
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    background: linear-gradient(135deg, #5D0067 0%, #0D1321 70%, #004d40 100%);}
-/* Título con efecto máquina de escribir (base para GSAP) */
-.typing-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: #FFC72C;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block; /* Para que GSAP anime correctamente */
-    margin: 0;}
-/* Cursor blink */
-.cursor {
-    color: #fff45c;
-    font-weight: bold;
-    animation: blink 0.8s infinite;}
-@keyframes blink {
-    0%, 100% {opacity: 1;}
-50% { opacity: 0;}
-}
+
 /* Cada letra span (para GSAP) */
 .greeting span {
     display: inline-block; /* Para animar individualmente */}
@@ -434,9 +476,9 @@ footer {
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s ease forwards;}
-.delay-1 { animation-delay: 3.8s;}
-.delay-2 { animation-delay: 4.2s;}
-.delay-3 { animation-delay: 4.6s;}
+.delay-1 { animation-delay: 2.8s;}
+.delay-2 { animation-delay: 3.2s;}
+.delay-3 { animation-delay: 3.6s;}
 /* Botones con efecto brillante */
 .hero-buttons {
     display: flex;
@@ -817,6 +859,7 @@ to { width: 18ch}
     overflow: hidden;
     border-right: 3px solid #39FF14;
     margin: 0 auto;
+    animation: typing 3.5s steps(40, end) forwards, blink 0.8s infinite;
 }
 
 .intro-subtitle {
@@ -846,6 +889,7 @@ to { width: 18ch}
 .fade-in { animation: fadeIn 1.5s forwards;}
 .delay-1 { animation-delay: 4s;}
 .delay-2 { animation-delay: 7s;}
+.delay-3 {animation-delay: 9s;}
 @keyframes fadeIn {
     to { opacity: 1; transform: translateY(0);}
 }
@@ -1051,22 +1095,6 @@ to { width: 18ch}
     text-align: center;
     max-width: 900px;
     margin: 0 auto 2rem;}
-/* ====== SOLO PÁGINA DE PRODUCTOS - TEXTO CENTRADO 100% ====== */
-body.productos-page .hero,
-body.productos-page .hero-container,
-body.productos-page .hero-text-content {
-    display: block !important;
-    text-align: center !important;
-    margin: 0 auto !important;
-    flex-direction: column !important;}
-body.productos-page .hero-text h1,
-body.productos-page .hero-text h2,
-body.productos-page .hero-text p {
-    margin: 1.5rem auto !important;
-    text-align: center !important;
-    max-width: 900px;}
-body.productos-page .hero-image-wrapper {
-    display: none !important; /* Oculta la imagen en productos si querés */}
 .productos-hero {
    padding: 6rem 2rem;
     text-align: center;
@@ -1144,7 +1172,7 @@ body.productos-page .hero-image-wrapper {
 .hero-content,
 .small-hero-content,
 .title-container {
-    max-width: 900px;
+    max-width:1000p;
     margin: 0 auto;
 }
 
@@ -1179,4 +1207,61 @@ body.productos-page .hero-image-wrapper {
     font-size: 1.25rem !important;
     margin-top: 1.2rem !important;
     line-height: 1.6;
+}
+.intro-section {
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  background: linear-gradient(135deg, #0a1a2e, #1a0b3d);
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-text {
+  font-size: 1.3rem;
+  color: #ccc;
+  margin-top: 2rem;
+  opacity: 0;
+  animation: fadeIn 1s forwards 4s;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent }
+  50% { border-color: #39FF14 }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1 }
+}
+
+@media (max-width: 768px) {
+  .typewriter { font-size: 2.2rem; }
+  .intro-section { padding: 4rem 1.5rem; min-height: 45vh; }
+}
+.typewriter-css {
+    font-size: 2.8rem;
+    color: #c814ff;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid #39FF14;
+    width: 0;
+    animation: typing 3s steps(30) forwards, blink 0.8s infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
 }
