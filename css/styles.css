@@ -31,9 +31,10 @@ h1, h2, h3 {
 main {
     flex-grow: 1;
     padding: 0;
-    background-color: #f7f7f7;
+    background-color: transparent;
     color: #4d7ff3;
     position: relative;
+    overflow: hidden;
 }
 /* Header */
 .main-header {
@@ -1222,10 +1223,6 @@ to { width: 18ch}
     text-align: center;  /* centrar en pantallas chicas */
   }
 
-  main {
-    overflow-x: hidden;  /* solo ocultar horizontal, no vertical */
-    overflow-y: visible; /* permitir que el texto se expanda */
-  }
 .typewriter-css {
     font-size: 2.8rem;
     color: #c814ff;
@@ -1251,6 +1248,8 @@ to { width: 18ch}
   main {
     position: relative; /* asegura que las estrellas se posicionen dentro del main */
     overflow: hidden;   /* evita que se desborden */
+    overflow-x: hidden;  /* solo ocultar horizontal, no vertical */
+    overflow-y: visible; /* permitir que el texto se expanda */
     padding: 2rem 1rem;
   }
 
