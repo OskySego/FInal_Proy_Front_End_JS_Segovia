@@ -168,6 +168,24 @@ if (menuToggle && nav) {
     console.log("[Check] checkout-btn:", !!document.getElementById("checkout-btn"));
     console.log("[Check] clear-cart-btn:", !!document.querySelector(".clear-cart-btn"));
 
+     const starsContainer = document.getElementById("stars-container");
+    if (starsContainer) {
+        const totalStars = 40; // cantidad de estrellas fugaces
+        for (let i = 0; i < totalStars; i++) {
+            const star = document.createElement("span");
+            star.className = "star";
+
+        // posición inicial aleatoria
+        star.style.top = Math.random() * window.innerHeight + "px";
+        star.style.left = Math.random() * window.innerWidth + "px";
+
+        // retraso y duración aleatorios
+        star.style.animationDelay = Math.random() * 20 + "s";
+        star.style.animationDuration = 10 + Math.random() * 15 + "s";
+
+        starsContainer.appendChild(star);
+        }
+    }
  
     
 });
