@@ -1,52 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Servicios | Osky Diseños</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios y Precios | Osky Diseños - Diseño Web y Gráfico Argentina</title>
+  <meta name="description" content="Todos los servicios de Osky Diseños: páginas web, branding, flyers, redes sociales y más. Precios claros y paquetes pensados para emprendedores.">
+  <meta name="keywords" content="diseño web argentina, landing page, branding, flyers, tarjetas digitales, mantenimiento web, precios diseño gráfico">
 
-    <!-- Estilos -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Servicios y Precios - Osky Diseños">
+  <meta property="og:description" content="Diseño web, branding y gráfico con precios transparentes. ¡Elige tu paquete ideal!">
+  <meta property="og:image" content="img/Logo_for_Osky_Diseños.svg">
+  <meta property="og:url" content="https://osky-disenos.netlify.app/productos.html">
+  <meta property="og:type" content="website">
 
-    <!-- Iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <header class="main-header">
-        <div class="logo">
-            <a href="index.html"><img src="img/Logo_for_Osky_Diseños.svg" alt="Logo de Osky Diseños, representando creatividad en diseño web y gráfico" class="header-logo"></a>
-        </div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html" class="activa">Servicios</a></li>
-                <li><a href="resenas.html">Reseñas</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-        <!-- BOTÓN HAMBURGUESA (solo se ve en móvil) -->
-        <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+  <a href="index.html" class="logo">
+    <img src="img/Logo_for_Osky_Diseños.svg" alt="Osky Diseños" class="header-logo">
+  </a>
 
-      
-        <div class="cart-icon" id="cart-icon">
-              <i class="fas fa-shopping-cart"></i>
-              <span id="cart-quantity" class="cart-quantity">0</span>
-        </div>
+  <!-- MENÚ NORMAL (desktop) -->
+  <nav class="main-nav" id="main-nav" aria-label="Menú principal">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="productos.html" >Servicios</a></li>
+      <li><a href="resenas.html">Reseñas</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- BOTÓN HAMBURGUESA (solo móvil) -->
+         <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- CARRITO -->
+        <button id="open-cart-btn" class="cart-icon" aria-label="Abrir carrito">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-quantity">0</span>
+        </button>
   </header>
 
-    <section class="hero parallax">
-    <div class="intro-content">
-        <h1 class="typewriter">Nuestra Tienda de Diseños</h1>
-        <p class="intro-subtitle">Paquetes pensados para emprendedores que buscan impacto real</p>
-    </div>
-    </section>
-
-   <!-- =========================
-     SECCIÓN: CATÁLOGO POR GRUPOS
-     Reemplaza la sección id="productos" por este bloque
-     ========================= -->
+  <!-- HERO SERVICIOS -->
+  <main class="page-content">
+   <section class="hero parallax">
+            <div class="hero-content">
+                <!-- IMAGEN ANIMADA CON EFECTOS -->
+                <div class="hero-image-container">
+                    <img src="img/Logo_for_Osky_Diseños.svg" alt="Logo de Osky Diseños" class="hero-main-image">
+                </div>
+                <!-- TÍTULO QUE APARECE LETRA POR LETRA -->
+                <h1 class="typewriter">
+                    <span class="greeting" id="greeting-text">Nuestra Tienda De Diseños</span>
+                    <span class="cursor">|</span>
+                </h1>
+                <!-- SUBTÍTULO CON FADE IN SUAVE -->
+                <p class="subtitle fade-in delay-1">Combos pernsados para emprendedores</p>
+        
+                <!-- TEXTO DESTACADO CON ANIMACIÓN DE REBOTE -->
+                <p class="highlight-text fade-in delay-2">
+                   Que buscan impacto real y resultado rápidos 
+                </p>
+                <p class="highlight-text fade-in delay-3">
+                  Y tambien pensamos en los diseños particulares
+                </p>
+                <!-- 30+ ESTRELLAS DORADAS FLOTANTES (solo desktop) -->
+                <div class="floating-stars" id="stars-container"></div>
+            </div>
+  </section>
+  </main>
+   
   <section id="productos-container" >
   <!-- ========== Grupo: Diseño Web ========== -->
   <section class="product-group">

@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+   
 </head>
 <body>
     <header class="main-header">
@@ -26,18 +26,41 @@
                 <li><a href="contacto.html" class="active">Contacto</a></li>
             </ul>
         </nav>
-        <button class="menu-toggle" aria-label="Abrir menú de navegación">☰</button>
-        <div class="cart-icon-container" id="cart-icon">
-            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-            <span id="cart-quantity" class="cart-quantity-badge">0</span>
-        </div>
+        <!-- BOTÓN HAMBURGUESA (solo móvil) -->
+         <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- CARRITO -->
+         <button id="open-cart-btn" class="cart-icon" aria-label="Abrir carrito">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-quantity">0</span>
+        </button>
     </header>
 
     <main class="page-content">
-        <section class="page-header">
-            <h2>¡Hablemos de Tu Proyecto!</h2>
-            <p class="subtitle">Cuéntanos tus ideas y te ayudaremos a convertirlas en diseños persuasivos que impulsen tu negocio. Respuesta garantizada en menos de 24 horas.</p>
-        </section>
+        <section class="hero parallax">
+            <div class="hero-content">
+                <!-- IMAGEN ANIMADA CON EFECTOS -->
+                <div class="hero-image-container">
+                    <img src="img/Logo_for_Osky_Diseños.svg" alt="Logo de Osky Diseños" class="hero-main-image">
+                </div>
+                <!-- TÍTULO QUE APARECE LETRA POR LETRA -->
+                <h1 class="typewriter">
+                    <span class="greeting" id="greeting-text">Hablemos de tu Proyecto</span>
+                    <span class="cursor">|</span>
+                </h1>
+                <!-- SUBTÍTULO CON FADE IN SUAVE -->
+                <p class="subtitle fade-in delay-1">Diseño web y gráfico que convierte ideas en marcas reales</p>
+        
+                <!-- TEXTO DESTACADO CON ANIMACIÓN DE REBOTE -->
+                <p class="highlight-text fade-in delay-2">
+                    No dudes mas la Solucion a un click de tu mano ¡¡¡ TE LO VAS A PERDER !!!
+                </p>
+                <!-- 30+ ESTRELLAS DORADAS FLOTANTES (solo desktop) -->
+                <div class="floating-stars" id="stars-container"></div>
+            </div>
+        </section> 
 
         <section id="contacto" class="contact-section-page">
             <form action="https://formspree.io/f/xvgwzvnj" method="POST" class="contact-form" id="contactForm">
