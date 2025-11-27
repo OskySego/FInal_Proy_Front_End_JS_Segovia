@@ -427,9 +427,9 @@ main {
 }
 /* En pantallas pequeñas: ocultar menú y mostrar botón hamburguesa */
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-        z-index: 2000;
+.menu-toggle {
+    display: block;
+    z-index: 2000;
     }
 .main-nav {
     position: fixed;
@@ -1240,6 +1240,7 @@ to { width: 18ch}
   main {
     position: relative; /* asegura que las estrellas se posicionen dentro del main */
     overflow: hidden;   /* evita que se desborden */
+    padding: 2rem 1rem;
   }
 
   .floating-stars {
@@ -1250,13 +1251,13 @@ to { width: 18ch}
   .star {
     width: 2px;
     height: 2px;
-    animation-duration: 12s; /* más rápido en móviles */
+    animation-duration: 10s; /* más rápido en móviles */
   }
 
   .hero {
     flex-direction: column;
     text-align: center;
-    padding: 3rem 1.5rem;
+    padding: 2rem 1rem;
   }
 
   .hero-text {
@@ -1266,6 +1267,6 @@ to { width: 18ch}
 
   .hero-main-image {
     max-width: 280px;
-    margin: 2rem auto 0;
+    margin: 1.5rem auto 0;
   }
 }
