@@ -1211,10 +1211,21 @@ to { width: 18ch}
   to { opacity: 1 }
 }
 
-@media (max-width: 768px) {
-  .typewriter { font-size: 2.2rem; }
+@media (max-width: 768px) {writer
+  .type { font-size: 2.2rem; }
   .intro-section { padding: 4rem 1.5rem; min-height: 45vh; }
 }
+.typewriter, .typewriter-small {
+    font-size: 1.4rem;   /* reducir tamaño en móviles */
+    white-space: normal; /* permitir salto de línea */
+    overflow: visible;   /* evitar que se corte el texto */
+    text-align: center;  /* centrar en pantallas chicas */
+  }
+
+  main {
+    overflow-x: hidden;  /* solo ocultar horizontal, no vertical */
+    overflow-y: visible; /* permitir que el texto se expanda */
+  }
 .typewriter-css {
     font-size: 2.8rem;
     color: #c814ff;
