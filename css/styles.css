@@ -940,7 +940,7 @@ to { width: 18ch}
     box-shadow: 0 30px 60px rgba(255,199,44,0.3);
     filter: drop-shadow(0 0 50px rgba(255,199,44,0.6));}
 /* Responsive */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     .hero-image-container {
         position: relative;
         width: 80%;
@@ -998,7 +998,7 @@ to { width: 18ch}
     transform: translateY(-20px) scale(1.04);
     filter: drop-shadow(0 0 60px rgba(255,199,44,0.7));}
 /* RESPONSIVE PERFECTO */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
     .hero-container {
         gap: 4rem;}
 }
@@ -1234,4 +1234,38 @@ to { width: 18ch}
 
 @keyframes blink {
     50% { border-color: transparent }
+}
+/* Ajustes para pantallas chicas */
+@media (max-width: 768px) {
+  main {
+    position: relative; /* asegura que las estrellas se posicionen dentro del main */
+    overflow: hidden;   /* evita que se desborden */
+  }
+
+  .floating-stars {
+    inset: 0;
+    z-index: 0; /* detrás del contenido */
+  }
+
+  .star {
+    width: 2px;
+    height: 2px;
+    animation-duration: 12s; /* más rápido en móviles */
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero-main-image {
+    max-width: 280px;
+    margin: 2rem auto 0;
+  }
 }
