@@ -32,7 +32,9 @@ main {
     flex-grow: 1;
     padding: 0;
     background-color: #f7f7f7;
-    color: #4d7ff3;}
+    color: #4d7ff3;
+    position: relative;
+}
 /* Header */
 .main-header {
     background-color: #5D0067; /* Violeta Profundo */
@@ -52,7 +54,7 @@ main {
     display: none;
     background: none;
     border: none;
-    font-size: rem;
+    font-size: 1.5rem;
     color: #FFC72C;
     cursor: pointer;
     z-index: 1001;
@@ -505,13 +507,6 @@ main {
     background: transparent;
     color: #F7F7F7;
     border: 2px solid #8BC34A;}
-/* Estrellas flotantes decorativas */
-.floating-stars {
-    position: absolute;
-    top: 20%;
-    left: 10%;
-    pointer-events: none;
-    z-index: 0;}
 .floating-stars span {
     position: absolute;
     width: 4px;
@@ -805,12 +800,6 @@ to { width: 18ch}
     color: #39FF14;
     margin: 0.8rem 0;
     font-size: 1.4rem;}
-.stars {
-    color: #FFD700;
-    font-size: 1.8rem;
-    letter-spacing: 4px;
-    text-shadow: 0 0 15px rgba(255,215,0,0.8);
-    margin: 0.5rem 0;}
 .review-card:hover {
     transform: translateY(-15px) scale(1.03);
     border-color: #39FF14;
@@ -825,7 +814,6 @@ to { width: 18ch}
     height: 60px;
     border-radius: 50%;
     border: 3px solid #FFC72C;}
-.stars { color: #FFC72C; font-size: 1.3rem;}
 .review-card p {
     font-style: italic;
     line-height: 1.7;
@@ -1177,28 +1165,6 @@ to { width: 18ch}
 }
 
 /* Títulos más chicos y elegantes */
-.typewriter,
-.typewriter-small,
-.page-hero h1,
-.small-hero h1,
-.productos-hero h1 {
-    font-size: 2.6rem !important;     /* ← Antes 4rem o más → ahora perfecto */
-    margin-bottom: 1rem;
-}
-
-@media (max-width: 768px) {
-    .typewriter,
-    .typewriter-small,
-    .page-hero h1 {
-        font-size: 2.2rem !important;
-    }
-    
-    .page-hero,
-    .small-hero {
-        padding: 3.5rem 1.5rem 2.5rem !important;
-        min-height: 50vh !important;
-    }
-}
 
 /* Subtítulos más compactos */
 .subtitle,

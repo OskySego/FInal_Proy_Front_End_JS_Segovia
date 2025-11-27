@@ -28,7 +28,7 @@
         <!-- MENÚ NORMAL (desktop) -->
         <nav class="main-nav" id="main-nav" aria-label="Menú principal">
             <ul>
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html" class="active">Inicio</a></li>
                 <li><a href="productos.html">Servicios</a></li>
                 <li><a href="resenas.html">Reseñas</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
@@ -40,11 +40,21 @@
         </button>
 
         <!-- CARRITO -->
-        <button id="open-cart-btn" class="cart-icon" aria-label="Abrir carrito">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="cart-quantity">0</span>
-        </button>
-    </header>
+        
+     <div id="cart-modal">
+        <div class="cart-modal-content">
+            <button class="close-cart">×</button>
+                <div id="cart-items"></div>
+                <div class="cart-summary">
+                    Total: $<span id="cart-total">0</span> ARS
+                </div>
+                <button id="checkout-btn">Finalizar Compra</button>
+            <button class="clear-cart-btn">Vaciar Carrito</button>
+        </div>
+    </div>
+    <!-- Botón para abrir -->
+    <button id="open-cart-btn">🛒 Ver Carrito</button>
+</header>
 
     <main class="page-content">
         <section class="hero parallax">

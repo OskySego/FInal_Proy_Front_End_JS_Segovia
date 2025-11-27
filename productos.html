@@ -35,7 +35,7 @@
   <nav class="main-nav" id="main-nav" aria-label="Menú principal">
     <ul>
       <li><a href="index.html">Inicio</a></li>
-      <li><a href="productos.html" >Servicios</a></li>
+      <li><a href="productos.html" class="active" >Servicios</a></li>
       <li><a href="resenas.html">Reseñas</a></li>
       <li><a href="contacto.html">Contacto</a></li>
     </ul>
@@ -45,12 +45,20 @@
          <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
             <i class="fas fa-bars"></i>
         </button>
-
-        <!-- CARRITO -->
-        <button id="open-cart-btn" class="cart-icon" aria-label="Abrir carrito">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="cart-quantity">0</span>
-        </button>
+  <!-- CARRITO -->
+  <div id="cart-modal">
+    <div class="cart-modal-content">
+      <button class="close-cart">×</button>
+        <div id="cart-items"></div>
+        <div class="cart-summary">
+          Total: $<span id="cart-total">0</span> ARS
+         </div>
+        <button id="checkout-btn">Finalizar Compra</button>
+      <button class="clear-cart-btn">Vaciar Carrito</button>
+    </div>
+  </div>
+  <!-- Botón para abrir -->
+  <button id="open-cart-btn">🛒 Ver Carrito</button>
   </header>
 
   <!-- HERO SERVICIOS -->

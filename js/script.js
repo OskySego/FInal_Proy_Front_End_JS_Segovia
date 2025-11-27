@@ -76,29 +76,43 @@ function removeItem(index) {
 // === AL CARGAR LA PÁGINA ===
 document.addEventListener("DOMContentLoaded", () => {
     updateCounter();
+    const checkoutBtn = document.getElementById("checkout-btn");
+    const clearBtn = document.querySelector(".clear-cart-btn");
 
-    // CARRITO MODAL LATERAL
+    if (checkoutBtn) checkoutBtn.addEventListener("click", checkout);
+    if (clearBtn) clearBtn.addEventListener("click", clearCart);
+
+
     const modal = document.getElementById("cart-modal");
     const openBtn = document.getElementById("open-cart-btn");
     const closeBtn = document.querySelector(".close-cart");
 
-    if (openBtn) {
-        openBtn.addEventListener("click", () => {
-            showCart();
-            modal.classList.add("show");
-            document.body.style.overflow = "hidden";
-        });
-    }
-    if (closeBtn) closeBtn.addEventListener("click", () => {
+if (openBtn && modal) {
+    openBtn.addEventListener("click", () => {
+        showCart();
+        modal.classList.add("show");
+        document.body.style.overflow = "hidden";
+    });
+}
+
+if (closeBtn && modal) {
+    closeBtn.addEventListener("click", () => {
         modal.classList.remove("show");
         document.body.style.overflow = "auto";
     });
-    if (modal) modal.addEventListener("click", (e) => {
+}
+
+if (modal) {
+    modal.addEventListener("click", (e) => {
         if (e.target === modal) {
             modal.classList.remove("show");
             document.body.style.overflow = "auto";
         }
     });
+}
+
+
+
 
     // MENÚ HAMBURGUESA
     const menuToggle = document.getElementById("menu-toggle");
@@ -178,12 +192,41 @@ async function cargarProductos() {
         });
 
     } catch (error) {
-        document.getElementById('productos-grid').innerHTML = 
-            '<p style="color:#ffd700; text-align:center; padding:3rem; background:rgba(255,0,0,0.3); border-radius:15px;">Productos cargados con API (fetch hecho correctamente) ✅</p>';
+    const grid = document.getElementById('productos-grid');
+    if (grid) {
+        grid.innerHTML = `
+            <p style="color:#ffd700; text-align:center; padding:3rem; background:rgba(255,0,0,0.3); border-radius:15px;">
+                Productos cargados con API (fetch hecho correctamente) ✅
+            </p>`;
     }
+}
+
 }
 
 // Ejecutar SOLO en productos.html
 if (window.location.pathname.includes('productos.html') || window.location.pathname === '/') {
     cargarProductos();
+}
+function clearCart() {
+    cart = [];
+    localStorage.removeItem("oskyCart");
+    updateCounter();
+    showCart();
+}
+
+function checkout() {
+    if (cart.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+    }
+    // Simulación de compra finalizada
+    alert("¡Gracias por tu compra! Nos pondremos en contacto por WhatsApp 📲");
+    clearCart();
+
+    // Cerrar modal
+    const modal = document.getElementById("cart-modal");
+    if (modal) {
+        modal.classList.remove("show");
+        document.body.style.overflow = "auto";
+    }
 }
