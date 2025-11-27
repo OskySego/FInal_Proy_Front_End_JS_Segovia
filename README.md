@@ -24,4 +24,4 @@ Este proyecto es un e-commerce dinámico para Osky Diseños, especializado en se
 3. Agrega productos al carrito; persiste al refrescar.
 4. Envía el formulario de contacto.
 
-Subido a [Netlify/GitHub Pages URL] para visualización en vivo.
+Subido a https://oskydisenios.netlify.app/ para visualización en vivo.

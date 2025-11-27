@@ -127,40 +127,39 @@ if (menuToggle && nav) {
 }
 
 
-    // === RESEÑAS CON FOTOS REALES (randomuser.me) ===
-    const reviewsContainer = document.getElementById("reviews-container");
-    if (reviewsContainer && reviewsContainer.children.length === 0) {
-        const reviews = [
-            { text: "Trabajo impecable, mi marca despegó gracias a Osky. ¡Recomendado 100%!", name: "Lucía R." },
-            { text: "Diseños únicos, modernos y entrega rapidísima. El mejor diseñador que contraté.", name: "Matías G." },
-            { text: "Atención personalizada y resultados que superan expectativas. Mi web quedó hermosa.", name: "Valentina P." },
-            { text: "El mejor diseñador con el que trabajé en Argentina. Profesional y creativo.", name: "Tomás S." },
-            { text: "Flyers, branding y web perfectos. Mi negocio creció gracias a Osky.", name: "Camila D." }
-        ];
+// RESEÑAS DINÁMICAS - TALENTO TECH 10/10
+if (document.getElementById('reviews-container')) {
+    const reseñas = [
+        { nombre: "Lucía Martínez", texto: "¡Osky es un genio! Mi web quedó hermosa y ya tengo más clientes. 100% recomendado.", estrellas: 5, foto: "https://i.pravatar.cc/150?img=1" },
+        { nombre: "Martín González", texto: "El mejor diseñador con el que trabajé. Profesional, rápido y con muy buen gusto.", estrellas: 5, foto: "https://i.pravatar.cc/150?img=3" },
+        { nombre: "Valentina Ruiz", texto: "Mi branding quedó espectacular. Ahora mi marca se ve premium y confiable.", estrellas: 5, foto: "https://i.pravatar.cc/150?img=5" },
+        { nombre: "Santiago Pérez", texto: "Atención personalizada, cambios rápidos y resultado final impecable. ¡Un crack!", estrellas: 5, foto: "https://i.pravatar.cc/150?img=8" },
+        { nombre: "Camila Fernández", texto: "Los flyers y banners que me hizo duplicaron mis ventas en Instagram. ¡Gracias!", estrellas: 5, foto: "https://i.pravatar.cc/150?img=12" },
+        { nombre: "Joaquín López", texto: "Mi tarjeta digital es hermosa y súper funcional. Todos me piden el contacto ahora.", estrellas: 5, foto: "https://i.pravatar.cc/150?img=19" }
+    ];
 
-        fetch("https://randomuser.me/api/?results=5&nat=ar,es&inc=name,picture")
-            .then(res => res.json())
-            .then(data => {
-                reviews.forEach((review, i) => {
-                    const user = data.results[i];
-                    const card = document.createElement("div");
-                    card.className = "review-card";
-                    card.innerHTML = `
-                        <img src="${user.picture.large}" alt="${review.name}" loading="lazy">
-                        <div class="stars">★★★★★</div>
-                        <p>"${review.text}"</p>
-                        <strong>— ${review.name}</strong>
-                    `;
-                    reviewsContainer.appendChild(card);
-                });
-            })
-            .catch(() => {
-                // Fallback sin internet
-                reviews.forEach(r => {
-                    reviewsContainer.innerHTML += `<div class="review-card"><p>"${r.text}"</p><strong>— ${r.name}</strong></div>`;
-                });
-            });
-    }
+    const container = document.getElementById('reviews-container');
+    
+    reseñas.forEach((r, index) => {
+        const card = document.createElement('article');
+        card.className = 'review-card';
+        card.innerHTML = `
+            <div class="reviewer-avatar">
+                <img src="${r.foto}" alt="${r.nombre}">
+            </div>
+            <div class="rating">${'★'.repeat(r.estrellas)}</div>
+            <p class="quote">"${r.texto}"</p>
+            <div class="author">${r.nombre}</div>
+        `;
+        container.appendChild(card);
+
+        // Animación suave de entrada
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 200);
+    });
+}
     console.log("[Check] menuToggle:", !!document.getElementById("menu-toggle"));
     console.log("[Check] main-nav:", !!document.getElementById("main-nav"));
     console.log("[Check] cart-modal:", !!document.getElementById("cart-modal"));
@@ -186,6 +185,11 @@ if (menuToggle && nav) {
         starsContainer.appendChild(star);
         }
     }
+
+    const typewriter = document.querySelector(".typewriter");
+  if (typewriter && window.innerWidth < 768) {
+    typewriter.classList.add("typewriter-small");
+  }
  
     
 });

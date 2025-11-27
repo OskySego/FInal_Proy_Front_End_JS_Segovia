@@ -7,21 +7,16 @@
   <meta name="description" content="Todos los servicios de Osky Diseños: páginas web, branding, flyers, redes sociales y más. Precios claros y paquetes pensados para emprendedores.">
   <meta name="keywords" content="diseño web argentina, landing page, branding, flyers, tarjetas digitales, mantenimiento web, precios diseño gráfico">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Servicios y Precios - Osky Diseños">
   <meta property="og:description" content="Diseño web, branding y gráfico con precios transparentes. ¡Elige tu paquete ideal!">
   <meta property="og:image" content="img/Logo_for_Osky_Diseños.svg">
   <meta property="og:url" content="https://osky-disenos.netlify.app/productos.html">
   <meta property="og:type" content="website">
 
-  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <!-- Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- GSAP -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <!-- CSS -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -31,7 +26,6 @@
     <img src="img/Logo_for_Osky_Diseños.svg" alt="Osky Diseños" class="header-logo">
   </a>
 
-  <!-- MENÚ NORMAL (desktop) -->
   <nav class="main-nav" id="main-nav" aria-label="Menú principal">
     <ul>
       <li><a href="index.html">Inicio</a></li>
@@ -41,11 +35,9 @@
     </ul>
   </nav>
 
-  <!-- BOTÓN HAMBURGUESA (solo móvil) -->
-         <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+  <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
             <i class="fas fa-bars"></i>
         </button>
-  <!-- CARRITO -->
   <div id="cart-modal">
     <div class="cart-modal-content">
       <button class="close-cart">×</button>
@@ -57,47 +49,38 @@
       <button class="clear-cart-btn">Vaciar Carrito</button>
     </div>
   </div>
-  <!-- Botón para abrir -->
   <button id="open-cart-btn">🛒 Ver Carrito</button>
   </header>
 
-  <!-- HERO SERVICIOS -->
   <main class="page-content">
    <section class="hero parallax">
             <div class="hero-content">
-                <!-- IMAGEN ANIMADA CON EFECTOS -->
                 <div class="hero-image-container">
                     <img src="img/Logo_for_Osky_Diseños.svg" alt="Logo de Osky Diseños" class="hero-main-image">
                 </div>
-                <!-- TÍTULO QUE APARECE LETRA POR LETRA -->
                 <h1 class="typewriter">
                     <span class="greeting" id="greeting-text">Nuestra Tienda De Diseños</span>
                     <span class="cursor">|</span>
                 </h1>
-                <!-- SUBTÍTULO CON FADE IN SUAVE -->
                 <p class="subtitle fade-in delay-1">Combos pernsados para emprendedores</p>
         
-                <!-- TEXTO DESTACADO CON ANIMACIÓN DE REBOTE -->
                 <p class="highlight-text fade-in delay-2">
                    Que buscan impacto real y resultado rápidos 
                 </p>
                 <p class="highlight-text fade-in delay-3">
                   Y tambien pensamos en los diseños particulares
                 </p>
-                <!-- 30+ ESTRELLAS DORADAS FLOTANTES (solo desktop) -->
                 <div class="floating-stars" id="stars-container"></div>
             </div>
   </section>
   </main>
    
   <section id="productos-container" >
-  <!-- ========== Grupo: Diseño Web ========== -->
   <section class="product-group">
     <h3 class="group-title">Diseño Web</h3>
     <p class="group-sub">Elegancias y profesionalismo todo junto en un solo lugar para que tus paginas web sean especiales.</p>
-    <div class="pricing-grid">
-      <!-- Landing Page Express -->
-      <article class="pricing-card">
+    <div class="card-grid">
+      <article class="box-card">
         <div class="card-image">
             <img src="img/Landing Page Express.jpg" alt="Ejemplo de Landing Page Express diseñado por Osky Diseños">
         </div>
@@ -118,8 +101,7 @@
         </div>
       </article>
 
-      <!-- Web Profesional Completa -->
-      <article class="pricing-card featured">
+      <article class="box-card featured">
         <div class="card-image">
             <img src="img/banner_web_profesional.svg" alt="Ejemplo de sitio web profesional diseñado por Osky Diseños">0
         </div>
@@ -140,8 +122,7 @@
         </div>
       </article>
 
-      <!-- Pack Web + Branding -->
-      <article class="pricing-card">
+      <article class="box-card">
         <div class="card-image">
             <img src="img/Pack web + branding.png" alt="Ejemplo de Pack Web + Branding by Osky Diseños">
         </div>
@@ -162,8 +143,7 @@
         </div>
       </article>
 
-      <!-- Mantenimiento Mensual -->
-      <article class="pricing-card">
+      <article class="box-card">
         <div class="card-image">
             <img src="img/mantenimiento-para-una-pagina-web-scaled.jpg" alt="Hacemos el mantenimiento de tu pagina web">
         </div>
@@ -185,13 +165,12 @@
     </div>
   </section>
 
-  <!-- ========== Grupo: Diseño Gráfico ========== -->
   <section class="product-group">
     <h3 class="group-title">Diseño Gráfico</h3>
     <p class="group-sub">Piezas visuales que conectan con tu público y elevan la percepción de tu marca.</p>
 
-    <div class="pricing-grid">
-      <article class="pricing-card">
+    <div class="card-grid">
+      <article class="box-card">
         <div class="card-image">
             <img src="img/Pack Flyer + Banner.png" alt="Sitio web profesional diseñado por Osky">
         </div>
@@ -211,7 +190,7 @@
         </div>
       </article>
 
-      <article class="pricing-card">
+      <article class="box-card">
         <div class="card-image">
             <img src="img/digital-business-card_professional.webp" alt="hacemos tustarjetas digitales profesionales diseñado por Osky">
         </div>
@@ -231,7 +210,7 @@
         </div>
       </article>
 
-      <article class="pricing-card featured">
+      <article class="box-card featured">
         <div class="card-image">
             <img src="img/banner_redes_sociales.svg" alt="banners profesionales diseñado por Osky">
         </div>
@@ -253,13 +232,12 @@
     </div>
   </section>
 
-  <!-- ========== Grupo: Branding ========== -->
   <section class="product-group">
     <h3 class="group-title">Branding</h3>
     <p class="group-sub">Identidad visual profesional para que tu marca sea reconocible y coherente en todos los puntos de contacto.</p>
 
-    <div class="pricing-grid">
-      <article class="pricing-card">
+    <div class="card-grid">
+      <article class="box-card">
         <div class="card-image">
             <img src="img/vector-degradado-logotipo-colorido-pajaro_343694-1365.avif" alt="creamos tu logotipo profesional diseñado por Osky">
         </div>
@@ -279,7 +257,7 @@
         </div>
       </article>
 
-      <article class="pricing-card featured">
+      <article class="box-card featured">
         <div class="card-image">
             <img src="img/pack_branding.jpg" alt="Sitio web profesional diseñado por Osky">
         </div>
@@ -299,7 +277,7 @@
         </div>
       </article>
 
-      <article class="pricing-card">
+      <article class="box-card">
         <div class="card-image">
             <img src="img/manualdemarca.png" alt="manual de marca profesional diseñado por Osky">
         </div>
@@ -320,13 +298,12 @@
     </div>
   </section>
 
-  <!-- ========== Grupo: Social Media ========== -->
   <section class="product-group">
     <h3 class="group-title">Social Media</h3>
     <p class="group-sub">Contenido estratégico y visual para mantener tu presencia activa y profesional en redes.</p>
 
-    <div class="pricing-grid">
-      <article class="pricing-card featured">
+    <div class="card-grid">
+      <article class="box-card featured">
         <div class="card-image">
             <img src="img/post.jpg" alt="Sitio web profesional diseñado por Osky">
         </div>
@@ -346,7 +323,7 @@
         </div>
       </article>
 
-      <article class="pricing-card">
+      <article class="box-card">
         <div class="card-image">
             <img src="img/historias animadas.avif" alt="Sitio web profesional diseñado por Osky">
         </div>
@@ -366,7 +343,7 @@
         </div>
       </article>
 
-      <article class="pricing-card">
+      <article class="box-card">
         <div class="card-image">
             <img src="img/portada pofesional.png" alt="Sitio web profesional diseñado por Osky">
         </div>
@@ -387,13 +364,12 @@
     </div>
   </section>
 
-  <!-- ========== Grupo: Volantes (inventados) ========== -->
   <section class="product-group">
     <h3 class="group-title">Volantes & Flyers</h3>
     <p class="group-sub">Soluciones rápidas y económicas para promoción local y eventos.</p>
 
-    <div class="pricing-grid">
-      <article class="pricing-card">
+    <div class="card-grid">
+      <article class="box-card">
         <div class="card-image">
             <img src="img/volanteA5.png" alt="Sitio web profesional diseñado por Osky">
         </div>
@@ -412,7 +388,7 @@
         </div>
       </article>
 
-      <article class="pricing-card">
+      <article class="box-card">
         <div class="card-image">
             <img src="img/volanteA4.jpg" alt="Sitio web profesional diseñado por Osky">
         </div>
@@ -431,7 +407,7 @@
         </div>
       </article>
 
-      <article class="pricing-card">
+      <article class="box-card">
         <div class="card-image">
             <img src="img/pack50.webp" alt="Sitio web profesional diseñado por Osky">
         </div>
@@ -452,13 +428,12 @@
     </div>
   </section>
 
-  <!-- ========== Grupo: Tarjetas Personales ========== -->
   <section class="product-group">
     <h3 class="group-title">Tarjetas Personales</h3>
     <p class="group-sub">Opciones digitales e impresas para causar una excelente primera impresión.</p>
 
-    <div class="pricing-grid">
-      <article class="pricing-card">
+    <div class="card-grid">
+      <article class="box-card">
         <div class="card-image">
             <img src="img/tarjetabasica.webp" alt="Sitio web profesional diseñado por Osky">
         </div>
@@ -477,7 +452,7 @@
         </div>
       </article>
 
-      <article class="pricing-card">
+      <article class="box-card">
         <div class="card-image">
             <img src="img/tarjetaimpresa.webp" alt="Sitio web profesional diseñado por Osky">
         </div>
@@ -496,7 +471,7 @@
         </div>
       </article>
 
-      <article class="pricing-card">
+      <article class="box-card">
         <div class="card-image">
             <img src="img/pack50.webp" alt="Sitio web profesional diseñado por Osky">
         </div>
@@ -518,15 +493,10 @@
   </section>
 </section>
 
-<!-- ===================================================== -->
-<!-- ======================= FOOTER ======================= -->
-<!-- ===================================================== -->
-
 <footer class="main-footer">
     <p>&copy; 2025 Osky Diseños - Todos los derechos reservados.</p>
 </footer>
 
-<!-- Scripts -->
 <script src="js/script.js"></script>
 
 </body>

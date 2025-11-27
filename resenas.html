@@ -17,23 +17,20 @@
     <div class="logo">
         <a href="index.html"><img src="img/Logo_for_Osky_Diseños.svg" alt="Osky" class="header-logo"></a>
     </div>
-    <!-- MENÚ NORMAL (desktop) -->
-        <nav class="main-nav" id="main-nav" aria-label="Menú principal">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Servicios</a></li>
-                <li><a href="resenas.html" class="active">Reseñas</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
+    <nav class="main-nav" id="main-nav" aria-label="Menú principal">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Servicios</a></li>
+            <li><a href="resenas.html" class="active">Reseñas</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
 
-    <!-- BOTÓN HAMBURGUESA (solo móvil) -->
-        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
             <i class="fas fa-bars"></i>
         </button>
 
-    <!-- CARRITO -->
-  <div id="cart-modal">
+    <div id="cart-modal">
     <div class="cart-modal-content">
       <button class="close-cart">×</button>
         <div id="cart-items"></div>
@@ -44,14 +41,13 @@
       <button class="clear-cart-btn">Vaciar Carrito</button>
     </div>
   </div>
-  <!-- Botón para abrir -->
   <button id="open-cart-btn">🛒 Ver Carrito</button>
 </header>
 
 <main class="page-content">
     <section class="hero parallax">
-             <div class="floating-stars" id="stars-container"></div> 
-        <h1 class="typewriter-css">Lo que dicen mis clientes</h1>
+        <div class="floating-stars" id="stars-container"></div> 
+        <h1 class="typewriter">Lo que dicen mis clientes</h1>
         <p class="intro-text">Más de 5 años creando diseños que impulsan marcas argentinas</p>
        
         <div class="reviews-stats">
@@ -59,18 +55,19 @@
             <div class="stars-big">★★★★★</div>
             <p>Basado en 92 reseñas reales</p>
         </div>
-        
     </section>
 
+    <!-- RESEÑAS DINÁMICAS → SOLO ESTE CONTENEDOR (SIN HTML ESTÁTICO) -->
     <section class="reseñas-grid-page" id="reviews-container">
-    <!-- Las reseñas se cargan aquí con JS -->
+        <!-- Aquí el JS mete todas las reseñas perfectas -->
     </section>
 </main>
 
 <footer class="main-footer">
-    <p>© 2025 Osky Diseños • Diseño Web y Gráfico con resultados</p>
+    <p>&copy; 2025 Osky Diseños - Todos los derechos reservados.</p>
 </footer>
 
 <script src="js/script.js"></script>
+
 </body>
 </html>

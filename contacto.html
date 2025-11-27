@@ -1,111 +1,94 @@
-<!-- contacto.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contacta a Osky Diseños para servicios de diseño web y gráfico. Envía tu consulta y recibe una respuesta rápida.">
-    <meta name="keywords" content="contacto Osky Diseños, consulta diseño web, diseño gráfico Argentina">
     <title>Contacto | Osky Diseños</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-   
 </head>
 <body>
-    <header class="main-header">
-        <div class="logo">
-            <a href="index.html"><img src="img/Logo_for_Osky_Diseños.svg" alt="Logo de Osky Diseños, representando creatividad en diseño web y gráfico" class="header-logo"></a>
-        </div>
-       <!-- MENÚ NORMAL (desktop) -->
-        <nav class="main-nav" id="main-nav" aria-label="Menú principal">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Servicios</a></li>
-                <li><a href="resenas.html">Reseñas</a></li>
-                <li><a href="contacto.html" class="active">Contacto</a></li>
-            </ul>
-        </nav>
-        <!-- BOTÓN HAMBURGUESA (solo móvil) -->
-         <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
-            <i class="fas fa-bars"></i>
-        </button>
 
-         <!-- CARRITO -->
-  <div id="cart-modal">
-    <div class="cart-modal-content">
-      <button class="close-cart">×</button>
-        <div id="cart-items"></div>
-        <div class="cart-summary">
-          Total: $<span id="cart-total">0</span> ARS
-         </div>
-        <button id="checkout-btn">Finalizar Compra</button>
-      <button class="clear-cart-btn">Vaciar Carrito</button>
+<header class="main-header">
+    <div class="logo">
+        <a href="index.html"><img src="img/Logo_for_Osky_Diseños.svg" alt="Osky" class="header-logo"></a>
     </div>
-  </div>
-  <!-- Botón para abrir -->
-  <button id="open-cart-btn">🛒 Ver Carrito</button>
-    </header>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Servicios</a></li>
+            <li><a href="resenas.html">Reseñas</a></li>
+            <li><a href="contacto.html" class="active">Contacto</a></li>
+        </ul>
+    </nav>
+    <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+    <button id="open-cart-btn" class="cart-icon">🛒 <span id="cart-quantity">0</span></button>
+</header>
 
-    <main class="page-content">
-        <section class="hero parallax">
-            <div class="hero-content">
-                <!-- IMAGEN ANIMADA CON EFECTOS -->
-                <div class="hero-image-container">
+<main class="page-content">
+    <section class="hero parallax">
+        <div class="hero-image-container">
                     <img src="img/Logo_for_Osky_Diseños.svg" alt="Logo de Osky Diseños" class="hero-main-image">
-                </div>
-                <!-- TÍTULO QUE APARECE LETRA POR LETRA -->
-                <h1 class="typewriter">
-                    <span class="greeting" id="greeting-text">Hablemos de tu Proyecto</span>
-                    <span class="cursor">|</span>
-                </h1>
-                <!-- SUBTÍTULO CON FADE IN SUAVE -->
-                <p class="subtitle fade-in delay-1">Diseño web y gráfico que convierte ideas en marcas reales</p>
-        
-                <!-- TEXTO DESTACADO CON ANIMACIÓN DE REBOTE -->
-                <p class="highlight-text fade-in delay-2">
-                    No dudes mas la Solucion a un click de tu mano ¡¡¡ TE LO VAS A PERDER !!!
-                </p>
-                <!-- 30+ ESTRELLAS DORADAS FLOTANTES (solo desktop) -->
-                <div class="floating-stars" id="stars-container"></div>
-            </div>
-        </section> 
-
-        <section id="contacto" class="contact-section-page">
-            <form action="https://formspree.io/f/xvgwzvnj" method="POST" class="contact-form" id="contactForm">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required autocomplete="name" aria-required="true">
-
-                <label for="email">Correo Electrónico:</label>
-                <input type="email" id="email" name="email" required autocomplete="email" aria-required="true">
-
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" rows="6" required aria-required="true"></textarea>
-
-                <button type="submit">Enviar Consulta</button>
-            </form>
-        </section>
-    </main>
-
-    <div id="cart-modal" class="modal">
-        <div class="modal-content cart-modal-content">
-            <span class="close-button" id="close-cart-btn">×</span>
-            <h3>Tu Carrito de Compras</h3>
-            <div id="cart-items" class="cart-items-container"></div>
-            <div class="cart-summary">
-                <span>Total:</span>
-                <span class="cart-total-amount">$<span id="cart-total">0</span></span>
-            </div>
-            <button id="checkout-btn" class="cta-button">Finalizar Compra</button>
-            <button id="clear-cart-btn" class="clear-cart-btn">Vaciar Carrito</button>
         </div>
+        <div class="floating-stars" id="stars-container"></div>
+        <div class="hero-content">
+            <h1 class="typewriter">
+                <span id="greeting-text">Hablemos de tu Proyecto</span>
+                <span class="cursor">|</span>
+            </h1>
+            <p class="subtitle fade-in delay-2">Diseño web y gráfico que convierte ideas en marcas reales</p>
+            <span></span>
+            <p class="subtitle fade-in delay-3">¡No dejes para mañana el diseño que podés tener hoy!</p>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO PERFECTO -->
+    <section class="contact-section-page">
+        <div class="contact-container">
+            <h2>¡Empecemos tu proyecto hoy!</h2>
+            <form action="https://formspree.io/f/xvgwzvnj" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Juan Pérez">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required placeholder="juan@ejemplo.com">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono (opcional)</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="+54 9 11 1234-5678">
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">¿En qué puedo ayudarte?</label>
+                    <textarea id="mensaje" name="mensaje" rows="6" required placeholder="Quiero un sitio web para mi emprendimiento..."></textarea>
+                </div>
+                <button type="submit" class="cta-button main-cta">
+                    <i class="fas fa-paper-plane"></i> Enviar Consulta
+                </button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<!-- Modal del carrito (uno solo) -->
+<div id="cart-modal">
+    <div class="cart-modal-content">
+        <button class="close-cart">×</button>
+        <h3>Tu Carrito</h3>
+        <div id="cart-items"></div>
+        <div class="cart-summary">Total: $<span id="cart-total">0</span> ARS</div>
+        <button id="checkout-btn">Finalizar Compra</button>
+        <button class="clear-cart-btn">Vaciar Carrito</button>
     </div>
+</div>
 
-    <footer>
-        <p>&copy; 2025 Osky Diseños | Todos los derechos reservados. Diseñado con pasión en Argentina.</p>
-    </footer>
+<footer class="main-footer">
+    <p>© 2025 Osky Diseños • Diseño con pasión desde Argentina</p>
+</footer>
 
-    <script src="js/script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
